@@ -1,0 +1,56 @@
+<!--
+Johnathan Nguyen
+WEB PROGRAMMING 
+Project #4: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body class="gradient">
+    <h1>ENTER LOGIN</h1>
+    <div>
+        <form id="loginForm">
+            <label id="loginErr" class="error"></label><br>
+           
+            <table>
+                <tr>
+                    <td>Enter Username: </td>
+                    <td>
+                        <label id="loginUserErr" class="error"></label><br>
+
+                        <input type="text" id="loginUser" placeholder="Ex: Conway123" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Enter Password: </td>
+                    <td>
+                        <label id="loginPassErr" class="error"></label><br>
+
+                        <input type="text" id="loginPass" placeholder="Ex: Robert (a-z)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <!---JavaScript to authenticate user login-->
+                        <input style="cursor: pointer;" type="button" id="button" value="Login"onclick="authenticate()" />
+                    </td>
+                </tr>
+            </table>
+            <div id="w3c">
+                <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
+                <a href="https://jigsaw.w3.org/css-validator/#validate_by_input"><img src="images/css.png" alt="css val"></a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
