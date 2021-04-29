@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Choose City</title>
+</head>
+<body>
+<box-header-city class="box-header-city">
+    <box-header-city-image
+      backgroundSize="cover"
+      class="box-header-city-image"
+    >
+        <img
+          src="https://images.unsplash.com/photo-1571348500628-1e9b6aa00dba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+          class="image"
+        />
+
+  
+      <div class="builder-image-sizer image-sizer"></div>
+    </box-header-city-image>
+    <choose-city-headline-text class="title">
+      <p>Select a city to pick-up your vehicle</p>
+    </choose-city-headline-text>
+    <choose-city-subtitle class="subtitle">
+      <p>We have plenty of cars for you to choose from</p>
+    </choose-city-subtitle>
+  </box-header-city>
+  <choose-city-columns
+    
+  >
+    <div class="builder-columns columns">
+      <div class="builder-column column">
+        <atlanta class="atlanta">
+          <atl-image-box class="atl-image-box">
+            <choose-atlanta-text class="choose-atlanta-text">
+              <p>Atlanta</p>
+            </choose-atlanta-text>
+  
+            <choose-atl-button class="choose-atl-button">
+              <p>Find Available Cars</p>
+            </choose-atl-button>
+          </atl-image-box>
+        </atlanta>
+      </div>
+  
+      <div class="builder-column column-2">
+        <chicago class="chicago">
+          <chicago-image-box class="chicago-image-box">
+            <choose-chicago-text class="choose-chicago-text">
+              <p>Chicago</p>
+            </choose-chicago-text>
+  
+            <choose-atlanta-button class="choose-atlanta-button">
+              <p>Find Available Cars</p>
+            </choose-atlanta-button>
+          </chicago-image-box>
+        </chicago>
+      </div>
+  
+      <div class="builder-column column-3">
+        <los-angeles class="los-angeles">
+          <la-image-box class="la-image-box">
+            <choose-la-text class="choose-la-text">
+              <p>Los Angeles</p>
+            </choose-la-text>
+  
+            <choose-la-button class="choose-la-button">
+              <p>Find Available Cars</p>
+            </choose-la-button>
+          </la-image-box>
+        </los-angeles>
+      </div>
+    </div>
+  </choose-city-columns>
+  <style>
+      body {
+          background-color: black;
+      }
+    .box-header-city {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-left: 0px;
+      padding-right: 0px;
+      color: rgba(0, 0, 0, 1);
+      width: 100%;
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 1);
+    }
+    .box-header-city-image {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: -2.5px;
+      text-align: center;
+      line-height: normal;
+      height: auto;
+      width: 100%;
+      align-self: stretch;
+    }
+    .image {
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .image-sizer {
+      width: 100%;
+      padding-top: 42.699999999999996%;
+      pointer-events: none;
+      font-size: 0;
+    }
+    .title {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      text-align: center;
+      line-height: normal;
+      height: auto;
+      font-size: 33px;
+      margin-bottom: -30px;
+      color: rgba(255, 255, 255, 1);
+      padding-bottom: px;
+    }
+    .subtitle {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 25.59375px;
+      text-align: center;
+      line-height: normal;
+      height: auto;
+      font-size: 17px;
+      color: rgba(255, 255, 255, 1);
+    }
+    .choose-city-columns {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background-color: rgba(0, 0, 0, 1);
+    }
+    .columns {
+      display: flex;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: calc(33.333333333333336% - 13.333333333333334px);
+      margin-left: 0px;
+    }
+    .atlanta {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 15px;
+      height: 25vh;
+      background-image: url(https://images.unsplash.com/photo-1470723710355-95304d8aece4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .atl-image-box {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: auto;
+      height: auto;
+      margin-bottom: auto;
+      padding-bottom: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 900px;
+    }
+    .choose-atlanta-text {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      line-height: normal;
+      height: auto;
+      text-align: center;
+      font-family: Julius Sans One, sans-serif;
+      color: rgba(255, 255, 255, 1);
+      font-size: 43px;
+    }
+   
+    .choose-atl-button {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      line-height: normal;
+      height: auto;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 11px;
+      padding-left: 21px;
+      padding-bottom: 11px;
+      padding-right: 21px;
+      background-color: rgba(255, 255, 255, 1);
+      letter-spacing: 2px;
+      font-size: 12px;
+      border-radius: 30px;
+    }
+    .column-2 {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: calc(33.333333333333336% - 13.333333333333334px);
+      margin-left: 20px;
+    }
+    .chicago {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 15px;
+      height: 25vh;
+      background-image: url(https://images.unsplash.com/photo-1524168272322-bf73616d9cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .chicago-image-box {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: auto;
+      height: auto;
+      margin-bottom: auto;
+      padding-bottom: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 900px;
+    }
+    .choose-chicago-text {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      line-height: normal;
+      height: auto;
+      text-align: center;
+      font-family: Julius Sans One, sans-serif;
+      color: rgba(255, 255, 255, 1);
+      font-size: 43px;
+    }
+    .choose-atlanta-button {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      line-height: normal;
+      height: auto;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 11px;
+      padding-left: 21px;
+      padding-bottom: 11px;
+      padding-right: 21px;
+      background-color: rgba(255, 255, 255, 1);
+      letter-spacing: 2px;
+      font-size: 12px;
+      border-radius: 30px;
+    }
+    .column-3 {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: calc(33.333333333333336% - 13.333333333333334px);
+      margin-left: 20px;
+    }
+    .los-angeles {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 15px;
+      height: 25vh;
+      background-image: url(https://images.unsplash.com/photo-1515896769750-31548aa180ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1434&q=80);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .la-image-box {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: auto;
+      height: auto;
+      margin-bottom: auto;
+      padding-bottom: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 900px;
+    }
+    .choose-la-text {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      line-height: normal;
+      height: auto;
+      text-align: center;
+      font-family: Julius Sans One, sans-serif;
+      color: rgba(255, 255, 255, 1);
+      font-size: 43px;
+    }
+    .choose-la-button {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 20px;
+      line-height: normal;
+      height: auto;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 11px;
+      padding-left: 21px;
+      padding-bottom: 11px;
+      padding-right: 21px;
+      background-color: rgba(255, 255, 255, 1);
+      letter-spacing: 2px;
+      font-size: 12px;
+      border-radius: 30px;
+    }
+  </style>
+  </body>
+  </html>
