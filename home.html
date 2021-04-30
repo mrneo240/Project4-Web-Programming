@@ -2,106 +2,102 @@
 <html>
 <head>
 <title>Home Page</title>
+
+choose-city.html
 </head>
 <body>
-    <home-page-image class="collection-showcase">
-        <home-page-box class="home-page-box">
-          <home-page-box-text class="home-page-box-text">
-            <h3>Welcome</h3>
-          </home-page-box-text>
-          <home-page-box-call-to-action class="home-page-box-call-to-action">
-            <p>Ready to rent a car?</p>
-          </home-page-box-call-to-action>
-          <a button="home-page-box-button" href="choose-city.html" class="button">
-            Rent now
-          </a>
-        </home-page-box>
-      </home-page-image>
-      <style>
-          body {
-              background-color: black;
-              background-image: url(https://images.unsplash.com/photo-1606427366671-da76f3edd083?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80); 
-              overflow: hidden;  
-              background-repeat:no-repeat;  
-              background-size: cover;   
-          }
-        .collection-showcase {
-          position: relative;
-          justify-content: flex-end;
-          flex-direction: column;
-          display: flex;
-          height: 100vh;
-          align-items: flex-start;
-          overflow: hidden;
-          align-self: center;
-          padding-bottom: 30px;
-          padding-left: 0px;
-          width: 100vw;
-        }
-      
-        .home-page-box {
-          display: flex;
-          flex-direction: column;
-          height: auto;
-          padding-bottom: 20px;
-          width: auto;
-          align-self: center;
-          text-align: left;
-          padding-top: 20px;
-          padding-left: 20px;
-          padding-right: 20px;
-          position: relative;
-          margin-bottom: 3px;
-          margin-right: auto;
-          margin-top: auto;
-          margin-left: 50px;
-        }
-        .home-page-box-text {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          margin-top: 0px;
-          margin-bottom: -20px;
-          line-height: normal;
-          height: auto;
-          text-align: left;
-          color: rgba(251, 251, 251, 1);
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          font-size: 12px;
-        }
-        .home-page-box-call-to-action {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          line-height: normal;
-          height: auto;
-          text-align: left;
-          color: rgba(252, 250, 250, 1);
-          font-size: 22px;
-          font-weight: 500;
-        }
-        .button {
-          flex-direction: column;
-          position: relative;
-          appearance: none;
-          padding-top: 15px;
-          padding-bottom: 15px;
-          padding-left: 25px;
-          padding-right: 25px;
-          background-color: rgba(255, 255, 255, 1);
-          color: rgba(0, 0, 0, 1);
-          border-radius: 20px;
-          text-align: center;
-          cursor: pointer;
-          width: 130px;
-          font-size: 14px;
-          align-self: center;
-          text-decoration: none;
-          z-index: 1000;
-          margin-right: auto;
-          margin-top: 20px;
-        }
-      </style>
+  <div id="iv3w" class="textJS">
+  </div>
+  <div id="lookButton" class="row">
+    <a class="button" href="choose-city.html">Find Car</a>
+  </div>
+  <script>
+  //typed.js https://mattboldt.com/demos/typed-js/
+  var items = document.querySelectorAll('#iv3w');
+    for (var i = 0, len = items.length; i < len; i++) {
+      (function(){
+        var e=this,t=JSON.parse('["Welcome","Ready to rent a car?"]'),r=function(e){
+          return parseInt(e,10)||0}
+        ,n=function(e){
+          return!!e}
+        ,o=function(){
+          var o=e;
+          o.innerHTML='<span></span>';
+          var c=parseInt('Infinity',10),s={
+            typeSpeed:r('40'),startDelay:r(''),backDelay:r('700'),backSpeed:r(''),smartBackspace:n('true'),fadeOut:n(''),fadeOutClass:'typed-fade-out',fadeOutDelay:r('500'),shuffle:n(''),loop:n(''),loopCount:isNaN(c)?1/0:c,showCursor:n('true'),cursorChar:'|',autoInsertCss:n('true'),bindInputFocusEvents:n(''),attr:'',contentType:'html'};
+          t&&t.length&&(s.strings=t),new Typed(o.children[0],s)};
+        if(window.Typed)o();
+        else{
+          var c=document.createElement('script');
+          c.src='https://cdn.jsdelivr.net/npm/typed.js@2.0.11',c.onload=o,document.head.appendChild(c)}
+      }
+       .bind(items[i]))();
+    }
+  </script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.row{
+  display:flex;
+  justify-content:flex-start;
+  align-items:stretch;
+  flex-wrap:nowrap;
+  padding:10px;
+}
+.button{
+  width:200px;
+  margin:15px 0;
+  background-color:#785580;
+  border:#000000 #ffffff;
+  color:#000000;
+  border-radius:10px 10px 10px 10px;
+  padding:7px 10px;
+  font-size:1em;
+  cursor:pointer;
+  text-align:center;
+  background-image:linear-gradient(#ffffff,#ffffff);
+  background-repeat:repeat;
+  background-position:left top;
+  background-attachment:scroll;
+  background-size:auto;
+  font-family:Arial, Helvetica, sans-serif;
+  align-self:center;
+}
+body{
+  background-image:url('https://images.unsplash.com/photo-1606427366671-da76f3edd083?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-repeat:no-repeat;
+  background-position:left top;
+  background-attachment:scroll;
+  background-size:cover;
+}
+.textJS{
+  color:#ffffff;
+  font-size:80px;
+  font-family:Courier New, Courier, monospace;
+  text-align:center;
+}
+#lookButton{
+  height:105px;
+  align-self:flex-start;
+  flex-direction:row;
+  justify-content:space-around;
+  align-items:flex-start;
+}
+#i0nb{
+  border:2px outset #ffffff;
+}
+@media (max-width: 768px){
+  .row{
+    flex-wrap:wrap;
+  }
+}
+
+</style>
+
   </body>
   </html>
