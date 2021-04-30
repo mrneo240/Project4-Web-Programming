@@ -1,338 +1,137 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Choose City</title>
-</head>
-<body>
-<box-header-city class="box-header-city">
-    <box-header-city-image
-      backgroundSize="cover"
-      class="box-header-city-image"
-    >
-        <img
-          src="https://images.unsplash.com/photo-1571348500628-1e9b6aa00dba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          class="image"
-        />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select City</title>
+  </head>
 
-  
-      <div class="builder-image-sizer image-sizer"></div>
-    </box-header-city-image>
-    <choose-city-headline-text class="title">
-      <p>Select a city to pick-up your vehicle</p>
-    </choose-city-headline-text>
-    <choose-city-subtitle class="subtitle">
-      <p>We have plenty of cars for you to choose from</p>
-    </choose-city-subtitle>
-  </box-header-city>
-  <choose-city-columns
-    
-  >
-    <div class="builder-columns columns">
-      <div class="builder-column column">
-        <atlanta class="atlanta">
-          <atl-image-box class="atl-image-box">
-            <choose-atlanta-text class="choose-atlanta-text">
-              <p>Atlanta</p>
-            </choose-atlanta-text>
-  
-            <choose-atl-button class="choose-atl-button">
-              <p>Find Available Cars</p>
-            </choose-atl-button>
-          </atl-image-box>
-        </atlanta>
+  <body>
+    <div class ="headerTitle"> <h1>Select a city to see available offers</h1></div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Atlanta" />
+          <div class="card-content">
+            <h1 class="card-header">Atlanta</h1>
+           
+            <a href="atlanta.html" style="text-decoration:none;"><button class ="card-btn" type="button">Find Available Cars</button></a>
+          </div>
+        </div>
       </div>
-  
-      <div class="builder-column column-2">
-        <chicago class="chicago">
-          <chicago-image-box class="chicago-image-box">
-            <choose-chicago-text class="choose-chicago-text">
-              <p>Chicago</p>
-            </choose-chicago-text>
-  
-            <choose-atlanta-button class="choose-atlanta-button">
-              <p>Find Available Cars</p>
-            </choose-atlanta-button>
-          </chicago-image-box>
-        </chicago>
+      <div class="grid-item">
+        <div class="card">
+          <img
+            class="card-img"
+            src="https://images.unsplash.com/photo-1524168272322-bf73616d9cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
+            alt="City"
+          />
+          <div class="card-content">
+            <h1 class="card-header">Chicago</h1>
+            
+            <a href="chicago.html" style="text-decoration:none;"><button class ="card-btn" type="button">Find Available Cars</button></a>
+          </div>
+        </div>
       </div>
-  
-      <div class="builder-column column-3">
-        <los-angeles class="los-angeles">
-          <la-image-box class="la-image-box">
-            <choose-la-text class="choose-la-text">
-              <p>Los Angeles</p>
-            </choose-la-text>
-  
-            <choose-la-button class="choose-la-button">
-              <p>Find Available Cars</p>
-            </choose-la-button>
-          </la-image-box>
-        </los-angeles>
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" 
+          src="https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Los Angeles" />
+          <div class="card-content">
+            <h1 class="card-header">Los Angeles</h1>
+            
+            <a href="losAngeles.html" style="text-decoration:none;"><button class ="card-btn" type="button">Find Available Cars</button></a>
+          </div>
+        </div>
       </div>
     </div>
-  </choose-city-columns>
-  <style>
-      body {
-          background-color: black;
-      }
-    .box-header-city {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding-left: 0px;
-      padding-right: 0px;
-      color: rgba(0, 0, 0, 1);
-      width: 100%;
-      margin-top: 20px;
-      background-color: rgba(0, 0, 0, 1);
-    }
-    .box-header-city-image {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: -2.5px;
-      text-align: center;
-      line-height: normal;
-      height: auto;
-      width: 100%;
-      align-self: stretch;
-    }
-    .image {
-      object-fit: cover;
-      object-position: center;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-    }
-    .image-sizer {
-      width: 100%;
-      padding-top: 42.699999999999996%;
-      pointer-events: none;
-      font-size: 0;
-    }
-    .title {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 20px;
-      text-align: center;
-      line-height: normal;
-      height: auto;
-      font-size: 33px;
-      margin-bottom: -30px;
-      color: rgba(255, 255, 255, 1);
-      padding-bottom: px;
-    }
-    .subtitle {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 25.59375px;
-      text-align: center;
-      line-height: normal;
-      height: auto;
-      font-size: 17px;
-      color: rgba(255, 255, 255, 1);
-    }
-    .choose-city-columns {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      background-color: rgba(0, 0, 0, 1);
-    }
-    .columns {
-      display: flex;
-    }
 
-    .column {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: calc(33.333333333333336% - 13.333333333333334px);
-      margin-left: 0px;
-    }
-    .atlanta {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 15px;
-      height: 25vh;
-      background-image: url(https://images.unsplash.com/photo-1470723710355-95304d8aece4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-    .atl-image-box {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: auto;
-      height: auto;
-      margin-bottom: auto;
-      padding-bottom: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      max-width: 900px;
-    }
-    .choose-atlanta-text {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 20px;
-      line-height: normal;
-      height: auto;
-      text-align: center;
-      font-family: Julius Sans One, sans-serif;
-      color: rgba(255, 255, 255, 1);
-      font-size: 43px;
-    }
-   
-    .choose-atl-button {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 20px;
-      line-height: normal;
-      height: auto;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 11px;
-      padding-left: 21px;
-      padding-bottom: 11px;
-      padding-right: 21px;
-      background-color: rgba(255, 255, 255, 1);
-      letter-spacing: 2px;
-      font-size: 12px;
-      border-radius: 30px;
-    }
-    .column-2 {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: calc(33.333333333333336% - 13.333333333333334px);
-      margin-left: 20px;
-    }
-    .chicago {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 15px;
-      height: 25vh;
-      background-image: url(https://images.unsplash.com/photo-1524168272322-bf73616d9cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-    .chicago-image-box {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: auto;
-      height: auto;
-      margin-bottom: auto;
-      padding-bottom: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      max-width: 900px;
-    }
-    .choose-chicago-text {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 20px;
-      line-height: normal;
-      height: auto;
-      text-align: center;
-      font-family: Julius Sans One, sans-serif;
-      color: rgba(255, 255, 255, 1);
-      font-size: 43px;
-    }
-    .choose-atlanta-button {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 20px;
-      line-height: normal;
-      height: auto;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 11px;
-      padding-left: 21px;
-      padding-bottom: 11px;
-      padding-right: 21px;
-      background-color: rgba(255, 255, 255, 1);
-      letter-spacing: 2px;
-      font-size: 12px;
-      border-radius: 30px;
-    }
-    .column-3 {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: calc(33.333333333333336% - 13.333333333333334px);
-      margin-left: 20px;
-    }
-    .los-angeles {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 15px;
-      height: 25vh;
-      background-image: url(https://images.unsplash.com/photo-1515896769750-31548aa180ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1434&q=80);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-    .la-image-box {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: auto;
-      height: auto;
-      margin-bottom: auto;
-      padding-bottom: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      max-width: 900px;
-    }
-    .choose-la-text {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 20px;
-      line-height: normal;
-      height: auto;
-      text-align: center;
-      font-family: Julius Sans One, sans-serif;
-      color: rgba(255, 255, 255, 1);
-      font-size: 43px;
-    }
-    .choose-la-button {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-top: 20px;
-      line-height: normal;
-      height: auto;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 11px;
-      padding-left: 21px;
-      padding-bottom: 11px;
-      padding-right: 21px;
-      background-color: rgba(255, 255, 255, 1);
-      letter-spacing: 2px;
-      font-size: 12px;
-      border-radius: 30px;
-    }
-  </style>
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgba(82, 62, 114, 0.589);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+}
+
+.grid {
+  display: grid;
+  width: 114em;
+  grid-gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  align-items: start;
+}
+
+.grid-item {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.grid-item:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 3rem;
+}
+
+.card-header {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #0d0d0d;
+  margin-bottom: 1.5rem;
+}
+
+
+.card-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #70b8ce;
+  border-radius: 5px;
+  border:none;
+}
+
+.headerTitle {
+height: 100px;
+width: 500px;
+color: white;
+
+}
+
+
+
+    </style>
+
+
+
   </body>
-  </html>
+</html>

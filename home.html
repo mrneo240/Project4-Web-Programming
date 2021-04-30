@@ -2,14 +2,12 @@
 <html>
 <head>
 <title>Home Page</title>
-
-choose-city.html
 </head>
 <body>
   <div id="iv3w" class="textJS">
   </div>
   <div id="lookButton" class="row">
-    <a class="button" href="choose-city.html">Find Car</a>
+    <a href="choose-city.html" style="text-decoration:none;"><button class ="button" type="button">Find Available Cars</button></a>
   </div>
   <script>
   //typed.js https://mattboldt.com/demos/typed-js/
@@ -36,7 +34,9 @@ choose-city.html
   </script>
 
 <style>
+
 * {
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 body {
@@ -48,25 +48,19 @@ body {
   align-items:stretch;
   flex-wrap:nowrap;
   padding:10px;
+  margin: auto;
+  width: 20%;
 }
 .button{
-  width:200px;
-  margin:15px 0;
-  background-color:#785580;
-  border:#000000 #ffffff;
-  color:#000000;
-  border-radius:10px 10px 10px 10px;
-  padding:7px 10px;
-  font-size:1em;
-  cursor:pointer;
-  text-align:center;
-  background-image:linear-gradient(#ffffff,#ffffff);
-  background-repeat:repeat;
-  background-position:left top;
-  background-attachment:scroll;
-  background-size:auto;
-  font-family:Arial, Helvetica, sans-serif;
-  align-self:center;
+  width: 100%;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #70b8ce;
+  border-radius: 5px;
+  border: none;
+
 }
 body{
   background-image:url('https://images.unsplash.com/photo-1606427366671-da76f3edd083?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -78,7 +72,6 @@ body{
 .textJS{
   color:#ffffff;
   font-size:80px;
-  font-family:Courier New, Courier, monospace;
   text-align:center;
 }
 #lookButton{
@@ -90,11 +83,6 @@ body{
 }
 #i0nb{
   border:2px outset #ffffff;
-}
-@media (max-width: 768px){
-  .row{
-    flex-wrap:wrap;
-  }
 }
 
 </style>
