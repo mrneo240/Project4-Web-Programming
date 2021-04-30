@@ -19,44 +19,37 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = "";
-$loginUser_err = $loginPass_err = $login_err = "";
+$username = "";
+$password = "";
+$loginUser_err = "";
+$loginPass_err = "";
+$login_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+    // Check username and password to ensure not empty
+    if(empty($_POST["username"])){
         $loginUser_err = "Please enter username.";
     } else{
-        $username = trim($_POST["username"]);
+        $username = $_POST["username"];
     }
-    
-    // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if(empty($_POST["password"])){
         $loginPass_err = "Please enter your password.";
     } else{
-        $password = trim($_POST["password"]);
+        $password = $_POST["password"];
     }
     
-    // If both username and password are not empty
+    // If both username and password errors are not empty
     if(empty($loginUser_err) && empty($loginPass_err)){
-        // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
+        $mysql = "SELECT id, username, password FROM users WHERE username = ?";
+        if($stmt = mysqli_prepare($link, $mysql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = $username;
-            
-            // Attempt to execute the prepared statement
+            mysqli_stmt_bind_param($stmt, "s", $insert_username);
+            $insert_username = $username;
+            // Execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Store result
                 mysqli_stmt_store_result($stmt);
-                
-                // Check if username is registered, then check its password pair
+                // Check if username exists within database, then check its hashed password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
@@ -64,12 +57,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
-                            
-                            // Store data in session variables
+                            // Store data in session variables to store car rental info
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
-                            
                             // Redirect user to home page
                             header("location: home.html");
                         } else{
@@ -82,11 +73,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             } else{
                 echo "Try again later.";
             }
-            // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    // Close connection
     mysqli_close($link);
 }
 ?>
@@ -102,29 +91,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body class="gradient">
     <h1>ENTER LOGIN</h1>
     <div>
-        <form id="loginForm">
-            <label id="loginErr" class="error"></label><br>
+        <form id="loginForm" method="post">
+        
             <table>
                 <tr>
                     <td>Enter Username: </td>
                     <td>
                         <label id="loginUserErr" class="error"></label><br>
-
-                        <input type="text" id="loginUser" placeholder="Ex: Conway123" />
+                        <input type="text" id="loginUser" name="username" placeholder="Username" />
                     </td>
                 </tr>
                 <tr>
                     <td>Enter Password: </td>
                     <td>
                         <label id="loginPassErr" class="error"></label><br>
-
-                        <input type="text" id="loginPass" placeholder="Ex: Robert (a-z)" />
+                        <input type="text" id="loginPass" name="password" placeholder="Password" />
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <!---JavaScript to authenticate user login-->
                         <input style="cursor: pointer;" type="submit" id="button" value="Login" />
                     </td>
                 </tr>
