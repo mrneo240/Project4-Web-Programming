@@ -81,14 +81,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="loginbg">
 
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
-<body class="gradient">
+<body>
     <h1>ENTER LOGIN</h1>
     <div>
         <form id="loginForm" method="post">
