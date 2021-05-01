@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en-us" class="registerbg">
+<html lang="en-us">
 
 <head>
     <meta charset="UTF-8">

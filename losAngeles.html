@@ -4,14 +4,152 @@
  <head>
      <meta charset="UTF-8">
      <title>Los Angeles Cars</title>
-     <link href="style.css" type="text/css" rel="stylesheet">
  </head>
  
 <style>
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgba(163, 163, 163, 0.219);
+    font-family: "Poppins", sans-serif;
+    color: rgb(0, 0, 0);
+}
+.wrapper {
+    width: 705px;
+    margin: auto;
+    padding: 20px;
+}
 
+.clear {
+    clear: both;
+}
+.items {
+    display: block;
+    margin: 20px 0;
+}
+.vehicle-card {
+    background-color:rgb(255, 255, 255);
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 205px;
+    padding: 10px;
+    height: 430px;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+
+}
+.vehicle-card img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 27%;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-0.1%);
+  box-shadow: 0 4rem 7rem rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 16px;
+    display: block;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    margin: 0 0 10px 0;
+    margin-top: 10px;
+}
+button {
+  width: 100px;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #70b8ce;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+  bottom: -100px;
+}
+span {
+    float: right;
+}
+.shopping-cart {
+    display: inline-block;
+    background: url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png') no-repeat 0 0;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 0;
+}
 </style>
 
 <body>
+ <!-- wrapper -->
+<div class="wrapper">
+  <h1>Available Cars in Los Angeles</h1>
+<span><i class="shopping-cart"></i></span>
 
+ <div class="clear"></div>
+ <!-- items -->
+ <div class="items">
+     <!-- Car1-->
+     <div class="vehicle-card">
+         <img src="https://lh3.googleusercontent.com/proxy/r2MO2VsQfyf62kkjsiwcnxnGWPD6OoMSQFv_BYhB2OWVbWIuTcSLceDJcJXjxkVrjM7y7IJOg7rEYTMYNtUokHK1g23l3Rt3fS6P" alt="car1" />
+          <h2>Fiat 500</h2>
+      <p>Type: <em>Compact</em>
+         <p>Price: <em>$40/day</em>
+           <p>Seats: <em>5</em>
+            <p>Transmission: <em>Automatic</em>
+              <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+    
+      <!-- Car2-->
+     <div class="vehicle-card">
+         <img src="https://banner2.cleanpng.com/20180529/goj/kisspng-2018-kia-sorento-car-2017-kia-sorento-2016-kia-sor-5b0d6e01c9ee46.6204113815276067858271.jpg" alt="car2" />
+          <h2>Range Rover</h2>
+        <p>Type: <em>SUV</em>
+          <p>Price: <em>$190/day</em>
+            <p>Seats: <em>5</em>
+             <p>Transmission: <em>Automatic</em>
+               <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+  
+     <!-- Car3 -->
+     <div class="vehicle-card">
+         <img src="https://www.vhv.rs/dpng/d/78-787932_2016-chrysler-300c-transparent-hd-png-download.png" alt="car3" />
+          <h2>Chrysler 300</h2>
+        <p>Type: <em>Midsize</em>
+          <p>Price: <em>$60/day</em>
+            <p>Seats: <em>5</em>
+             <p>Transmission: <em>Automatic</em>
+               <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+
+      <!-- Car4 -->
+     <div class="vehicle-card">
+         <img src="https://www.vhv.rs/dpng/d/457-4574104_transparent-rolls-royce-png-rolls-royce-phantom-8.png" alt="car4" />
+          <h2>Rolls Royce Phantom</h2>
+        <p>Type: <em>Luxury</em>
+          <p>Price: <em>$600/day</em>
+            <p>Seats: <em>5</em>
+             <p>Transmission: <em>Automatic</em>
+               <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+ 
+ </div>
+ <!--/ items -->
+</div>
+<!--/ wrapper -->
 </body>
+
+
 </html>

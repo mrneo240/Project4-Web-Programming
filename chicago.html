@@ -4,14 +4,152 @@
  <head>
      <meta charset="UTF-8">
      <title>Chicago Cars</title>
-     <link href="style.css" type="text/css" rel="stylesheet">
  </head>
  
 <style>
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgba(163, 163, 163, 0.219);
+    font-family: "Poppins", sans-serif;
+    color: rgb(0, 0, 0);
+}
+.wrapper {
+    width: 705px;
+    margin: auto;
+    padding: 20px;
+}
 
+.clear {
+    clear: both;
+}
+.items {
+    display: block;
+    margin: 20px 0;
+}
+.vehicle-card {
+    background-color:rgb(255, 255, 255);
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 205px;
+    padding: 10px;
+    height: 430px;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+
+}
+.vehicle-card img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 27%;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-0.1%);
+  box-shadow: 0 4rem 7rem rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 16px;
+    display: block;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    margin: 0 0 10px 0;
+    margin-top: 10px;
+}
+button {
+  width: 100px;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #70b8ce;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+  bottom: -100px;
+}
+span {
+    float: right;
+}
+.shopping-cart {
+    display: inline-block;
+    background: url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png') no-repeat 0 0;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 0;
+}
 </style>
 
 <body>
+ <!-- wrapper -->
+<div class="wrapper">
+  <h1>Available Cars in Chicago</h1>
+<span><i class="shopping-cart"></i></span>
 
+ <div class="clear"></div>
+ <!-- items -->
+ <div class="items">
+     <!-- Car1-->
+     <div class="vehicle-card">
+         <img src="https://cdn.imgbin.com/20/13/8/imgbin-2015-toyota-corolla-2014-toyota-corolla-2016-toyota-corolla-car-toyota-2chYrPKqjCQJznnXfFdNXMbH5.jpg" alt="car1" />
+          <h2>Toyota Corolla</h2>
+      <p>Type: <em>Compact</em>
+         <p>Price: <em>$40/day</em>
+           <p>Seats: <em>5</em>
+            <p>Transmission: <em>Automatic</em>
+              <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+    
+      <!-- Car2-->
+     <div class="vehicle-card">
+         <img src="https://lh3.googleusercontent.com/proxy/6H6wZdG5wct6dZK4xq5Agg6oh2K2XaSGyLF7EmYWlywVfJOCw5H-b5A3hyxUQ8Ak3OLovgVUiH4MRCSJdNkKcdg1zz6nP179oF8-C4GJsUOuM7rfJLE9e8VPCiU" alt="car2" />
+          <h2>Range Rover</h2>
+        <p>Type: <em>Luxury</em>
+          <p>Price: <em>$190/day</em>
+            <p>Seats: <em>5</em>
+             <p>Transmission: <em>Automatic</em>
+               <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+  
+     <!-- Car3 -->
+     <div class="vehicle-card">
+         <img src="https://i.pinimg.com/originals/ba/f4/5b/baf45b87cd0ab0b8a66a83b75fdf8cd1.png" alt="car3" />
+          <h2>Nissan Maxima</h2>
+        <p>Type: <em>Midsize</em>
+          <p>Price: <em>$60/day</em>
+            <p>Seats: <em>5</em>
+             <p>Transmission: <em>Automatic</em>
+               <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+
+      <!-- Car4 -->
+     <div class="vehicle-card">
+         <img src="https://banner2.cleanpng.com/20180518/jsw/kisspng-2018-ford-explorer-sport-suv-sport-utility-vehicle-5afea93e63a500.0068458215266389104082.jpg" alt="car4" />
+          <h2>Ford Explorer</h2>
+        <p>Type: <em>SUV</em>
+          <p>Price: <em>$60/day</em>
+            <p>Seats: <em>5</em>
+             <p>Transmission: <em>Automatic</em>
+               <p>Air Conditioning: <em>✓</em>
+         </p>
+         <button class="add-to-cart" type="button">Reserve</button>
+     </div>
+ 
+ </div>
+ <!--/ items -->
+</div>
+<!--/ wrapper -->
 </body>
+
+
 </html>
