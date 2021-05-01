@@ -9,6 +9,13 @@
   <div id="lookButton" class="row">
     <a href="choose-city.html" style="text-decoration:none;"><button class ="button" type="button">Find Available Cars</button></a>
   </div>
+
+  <div id="signout">
+    <a href="logout.php">
+        <img src="images/logout.png" class="signout">
+    </a>
+ </div>
+
   <script>
   //typed.js https://mattboldt.com/demos/typed-js/
   var items = document.querySelectorAll('#iv3w');
@@ -84,6 +91,21 @@ body{
 #i0nb{
   border:2px outset #ffffff;
 }
+
+.signout{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+.signout:hover{
+    transform: scale(1.2);
+}
+
 
 </style>
 

@@ -17,7 +17,9 @@ h1 {
     margin-top: 30px;
 }
 
-
+.indexbg{
+    background-image: url(images/indexbg.jpg);
+}
 
 .loginbg{
     text-align: center;
@@ -79,8 +81,52 @@ td {
     color: red;
 }
 
-#w3c{
+
+a{
+    text-decoration: none;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.function{
+    font-family: monospace, serif;
+    margin: 5px;
+    margin-top: 10em;
+    float: left;
+    text-align: center;
+    background-color: dimgrey;
+    border: 2px solid white;
+    border-radius: 2%;
+    height: 3em;
+    width: 20em;
+    font-size: 30px;
+    color: white;
+    opacity: 95%;
+}
+
+.function:hover {
+    background-color: grey;
+}
+
+.signout{
     position: absolute;
     top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+.signout:hover{
+    transform: scale(1.2);
+}
+
+#w3c{
+    position: absolute;
+    bottom: 0;
     right: 0;
 }
