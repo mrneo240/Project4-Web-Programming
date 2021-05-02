@@ -1,10 +1,11 @@
-<?php
-//Referenced: https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
-/*
+<!---
+Referenced: https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
 Johnathan Nguyen
 WEB PROGRAMMING 
 Project #4: Car Rental
-*/
+
+-->
+<?php
     define('DB_SERVER', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '');

@@ -6,7 +6,6 @@ Referenced: https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system
 -->
 <?php
    session_start();
-   
    if(session_destroy()) {
       header("Location: login.php");
    }

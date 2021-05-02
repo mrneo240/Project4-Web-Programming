@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Sign Up Page</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 
 <body>
@@ -118,8 +118,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </form>
 </div>
 <div id="w3c">
-    <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
-    <a href="https://jigsaw.w3.org/css-validator/#validate_by_input"><img src="images/css.png" alt="css val"></a>
+    <a href="https://validator.w3.org/#validate_by_input"><img src="../images/xhtml.png" alt="xhtml val"></a>
+    <a href="https://jigsaw.w3.org/css-validator/#validate_by_input"><img src="../images/css.png" alt="css val"></a>
 </div>
 
 </body>
