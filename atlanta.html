@@ -12,7 +12,7 @@
     padding: 0;
 }
 body {
-    background-color: rgba(163, 163, 163, 0.219);
+    background-color: rgb(245,245,245);
     font-family: "Poppins", sans-serif;
     color: rgb(0, 0, 0);
 }
@@ -60,6 +60,44 @@ h2 {
     margin: 0 0 10px 0;
     margin-top: 10px;
 }
+add-to-cart {
+  position: relative;
+  background-color: #16a085;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  width: 100px;
+  text-align: center;
+  transition-duration: 0.4s;
+  box-shadow: 0 5px 15px #32CD32;
+  border-radius: 2px;
+}
+.add-to-cart:hover {
+  background: #98FB98;
+  box-shadow: 0px 2px 2px 1px #32CD32;
+  color: #000;
+}
+.add-to-cart:after {
+  content: "";
+  background: #3CB371;
+  display: block;
+  position: absolute;
+  padding-top: 40%;
+  padding-left: 110%;
+  margin-left: -5px !important;
+  margin-top: -28%;
+  opacity: 0;
+  transition: all 0.8s
+}
+.add-to-cart:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+.add-to-cart:focus { 
+outline:0; 
+}
 button {
   width: 100px;
   padding: 5px;
@@ -67,29 +105,77 @@ button {
   text-align: center;
   color: #ffffff;
   background-color: #70b8ce;
+  box-shadow: 0 2px 4px #008080;
   border-radius: 5px;
   border: none;
   position: relative;
   bottom: -100px;
+  cursor: pointer;
 }
 span {
     float: right;
 }
 .shopping-cart {
+	cursor: pointer;
     display: inline-block;
     background: url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png') no-repeat 0 0;
     width: 24px;
     height: 24px;
     margin: 0 10px 0 0;
 }
+.block {
+position: absolute;
+display: block;
+left: 1050px;
+}
+.block2 {
+position: absolute;
+display: block;
+left: 1090px;
+top: 105px;
+}
+.menu {
+position: absolute;
+background-color: #F0F8FF;
+display: block;
+margin-top: 100px;
+margin-left: 40px;
+width: 250px;
+height: 550px;
+}
+.options {
+  background-color: #70b8ce;
+  text-align: center;
+  margin-left: 12px;
+  cursor: pointer;
+  width: 90%;
+  height: 60px;
+}
+.options:hover {
+  background: #ADD8E6;
+  box-shadow: 0px 2px 2px 1px #008B8B;
+  color: #000;
+}
+
 </style>
 
 <body>
  <!-- wrapper -->
+ <div class="menu"><h1 style="text-align: center;border-bottom: 1px solid rgb(204, 204, 204);">Menu</h1>
+ <button class="options" type="button"><b>Home</b> </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Cities</b> </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Profile</b>  </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Log Out</b> </button>
+ </div>
+ <div class="block2"><img style="width: 88%; height: 110px"src="phone-ad2.png"></div>
+<div class="block"><img style="margin-top: 225px;margin-left: 40px;width: 130%; height: 660px"src="ad-one.png"></div>
 <div class="wrapper">
-  <h1>Available Cars in Atlanta</h1>
-<span><i class="shopping-cart"></i></span>
-
+  <h1>Available Cars in Atlanta:</h1>
+<span>&emsp;<i class="shopping-cart"></i></span>
+<span style="margin-top: 25;">View Shopping Cart</span>
  <div class="clear"></div>
  <!-- items -->
  <div class="items">
@@ -121,7 +207,7 @@ span {
   
      <!-- Car3 -->
      <div class="vehicle-card">
-         <img src="https://www.vhv.rs/dpng/d/428-4282906_jeep-grand-cherokee-laredo-2017-png-download-2017.png" alt="car3" />
+         <img src="https://pictures.dealer.com/p/parkenterprisescllc/1810/8476eeee97debca61deb8265ea9f0214x.jpg" alt="car3" />
           <h2>Jeep Grand Cherokee</h2>
         <p>Type: <em>SUV</em>
           <p>Price: <em>$70/day</em>
@@ -134,7 +220,7 @@ span {
 
       <!-- Car4 -->
      <div class="vehicle-card">
-         <img src="https://www.pikpng.com/pngl/m/40-409712_new-2019-toyota-camry-le-auto-2019-toyota.png" alt="car4" />
+         <img src="https://www.nicepng.com/png/detail/302-3021721_toyota-camry-toyota-yaris-hybrid-luna.png" alt="car4" />
           <h2>Toyota Camry</h2>
         <p>Type: <em>Midsize</em>
           <p>Price: <em>$60/day</em>
