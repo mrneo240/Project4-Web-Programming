@@ -60,6 +60,44 @@ h2 {
     margin: 0 0 10px 0;
     margin-top: 10px;
 }
+add-to-cart {
+  position: relative;
+  background-color: #16a085;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  width: 100px;
+  text-align: center;
+  transition-duration: 0.4s;
+  box-shadow: 0 5px 15px #32CD32;
+  border-radius: 2px;
+}
+.add-to-cart:hover {
+  background: #98FB98;
+  box-shadow: 0px 2px 2px 1px #32CD32;
+  color: #000;
+}
+.add-to-cart:after {
+  content: "";
+  background: #3CB371;
+  display: block;
+  position: absolute;
+  padding-top: 40%;
+  padding-left: 110%;
+  margin-left: -5px !important;
+  margin-top: -28%;
+  opacity: 0;
+  transition: all 0.8s
+}
+.add-to-cart:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+.add-to-cart:focus { 
+outline:0; 
+}
 button {
   width: 100px;
   padding: 5px;
@@ -67,35 +105,83 @@ button {
   text-align: center;
   color: #ffffff;
   background-color: #70b8ce;
+  box-shadow: 0 2px 4px #008080;
   border-radius: 5px;
   border: none;
   position: relative;
   bottom: -100px;
+  cursor: pointer;
 }
 span {
     float: right;
 }
 .shopping-cart {
+	cursor: pointer;
     display: inline-block;
     background: url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png') no-repeat 0 0;
     width: 24px;
     height: 24px;
     margin: 0 10px 0 0;
 }
+.block {
+position: absolute;
+display: block;
+left: 1050px;
+}
+.block2 {
+position: absolute;
+display: block;
+left: 1090px;
+top: 105px;
+}
+.menu {
+position: absolute;
+background-color: #F0F8FF;
+display: block;
+margin-top: 100px;
+margin-left: 40px;
+width: 250px;
+height: 550px;
+}
+.options {
+  background-color: #70b8ce;
+  text-align: center;
+  margin-left: 12px;
+  cursor: pointer;
+  width: 90%;
+  height: 60px;
+}
+.options:hover {
+  background: #ADD8E6;
+  box-shadow: 0px 2px 2px 1px #008B8B;
+  color: #000;
+}
 </style>
 
 <body>
  <!-- wrapper -->
+ <div class="menu"><h1 style="text-align: center;border-bottom: 1px solid rgb(204, 204, 204);">Menu</h1>
+ <button class="options" type="button"><b>Home</b> </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Cities</b> </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Profile</b>  </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Log Out</b> </button>
+ </div>
+ <div class="block2"><img style="width: 90%; height: 110px"src="phone-ad1.jpg"></div>
+<div class="block"><img style="margin-top: 225px;margin-left: 40px;width: 116%; height: 660px"src="ad-two.jpg"></div>
 <div class="wrapper">
   <h1>Available Cars in Chicago</h1>
-<span><i class="shopping-cart"></i></span>
+<span>&emsp;<i class="shopping-cart"></i></span>
+<span style="margin-top: 25;">View Shopping Cart</span>
 
  <div class="clear"></div>
  <!-- items -->
  <div class="items">
      <!-- Car1-->
      <div class="vehicle-card">
-         <img src="https://cdn.imgbin.com/20/13/8/imgbin-2015-toyota-corolla-2014-toyota-corolla-2016-toyota-corolla-car-toyota-2chYrPKqjCQJznnXfFdNXMbH5.jpg" alt="car1" />
+         <img src="https://www.pngitem.com/pimgs/m/533-5339230_toyota-corolla-png-transparent-png.png" alt="car1" />
           <h2>Toyota Corolla</h2>
       <p>Type: <em>Compact</em>
          <p>Price: <em>$40/day</em>
@@ -108,7 +194,7 @@ span {
     
       <!-- Car2-->
      <div class="vehicle-card">
-         <img src="https://lh3.googleusercontent.com/proxy/6H6wZdG5wct6dZK4xq5Agg6oh2K2XaSGyLF7EmYWlywVfJOCw5H-b5A3hyxUQ8Ak3OLovgVUiH4MRCSJdNkKcdg1zz6nP179oF8-C4GJsUOuM7rfJLE9e8VPCiU" alt="car2" />
+         <img src="https://i.pinimg.com/originals/de/61/88/de6188381ac8dff0499a96eac7cf9388.png" alt="car2" />
           <h2>Range Rover</h2>
         <p>Type: <em>Luxury</em>
           <p>Price: <em>$190/day</em>
@@ -121,7 +207,7 @@ span {
   
      <!-- Car3 -->
      <div class="vehicle-card">
-         <img src="https://i.pinimg.com/originals/ba/f4/5b/baf45b87cd0ab0b8a66a83b75fdf8cd1.png" alt="car3" />
+         <img src="https://www.pngkit.com/png/full/374-3749932_finance-a-car-midnight-blue-nissan-maxima.png" alt="car3" />
           <h2>Nissan Maxima</h2>
         <p>Type: <em>Midsize</em>
           <p>Price: <em>$60/day</em>
@@ -134,7 +220,7 @@ span {
 
       <!-- Car4 -->
      <div class="vehicle-card">
-         <img src="https://banner2.cleanpng.com/20180518/jsw/kisspng-2018-ford-explorer-sport-suv-sport-utility-vehicle-5afea93e63a500.0068458215266389104082.jpg" alt="car4" />
+         <img src="https://www.pngitem.com/pimgs/m/14-147031_new-2020-ford-explorer-xlt-2019-chevrolet-equinox.png" alt="car4" />
           <h2>Ford Explorer</h2>
         <p>Type: <em>SUV</em>
           <p>Price: <em>$60/day</em>
