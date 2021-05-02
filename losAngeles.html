@@ -60,6 +60,44 @@ h2 {
     margin: 0 0 10px 0;
     margin-top: 10px;
 }
+add-to-cart {
+  position: relative;
+  background-color: #16a085;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  width: 100px;
+  text-align: center;
+  transition-duration: 0.4s;
+  box-shadow: 0 5px 15px #32CD32;
+  border-radius: 2px;
+}
+.add-to-cart:hover {
+  background: #98FB98;
+  box-shadow: 0px 2px 2px 1px #32CD32;
+  color: #000;
+}
+.add-to-cart:after {
+  content: "";
+  background: #3CB371;
+  display: block;
+  position: absolute;
+  padding-top: 40%;
+  padding-left: 110%;
+  margin-left: -5px !important;
+  margin-top: -28%;
+  opacity: 0;
+  transition: all 0.8s
+}
+.add-to-cart:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+.add-to-cart:focus { 
+outline:0; 
+}
 button {
   width: 100px;
   padding: 5px;
@@ -67,35 +105,83 @@ button {
   text-align: center;
   color: #ffffff;
   background-color: #70b8ce;
+  box-shadow: 0 2px 4px #008080;
   border-radius: 5px;
   border: none;
   position: relative;
   bottom: -100px;
+  cursor: pointer;
 }
 span {
     float: right;
 }
 .shopping-cart {
+	cursor: pointer;
     display: inline-block;
     background: url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png') no-repeat 0 0;
     width: 24px;
     height: 24px;
     margin: 0 10px 0 0;
 }
+.block {
+position: absolute;
+display: block;
+left: 1050px;
+}
+.block2 {
+position: absolute;
+display: block;
+left: 1090px;
+top: 105px;
+}
+.menu {
+position: absolute;
+background-color: #F0F8FF;
+display: block;
+margin-top: 100px;
+margin-left: 40px;
+width: 250px;
+height: 550px;
+}
+.options {
+  background-color: #70b8ce;
+  text-align: center;
+  margin-left: 12px;
+  cursor: pointer;
+  width: 90%;
+  height: 60px;
+}
+.options:hover {
+  background: #ADD8E6;
+  box-shadow: 0px 2px 2px 1px #008B8B;
+  color: #000;
+}
 </style>
 
 <body>
  <!-- wrapper -->
+ <div class="menu"><h1 style="text-align: center;border-bottom: 1px solid rgb(204, 204, 204);">Menu</h1>
+ <button class="options" type="button"><b>Home</b> </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Cities</b> </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Profile</b>  </button>
+ <br><br><br>
+ <button class="options" type="button"><b>Log Out</b> </button>
+ </div>
+ <div class="block2"><img style="width: 90%; height: 115px"src="rand-ad1.jpg"></div>
+<div class="block"><img style="margin-top: 230px;margin-left: 40px;width: 116%; height: 660px"src="ad-three.jpg"></div>
 <div class="wrapper">
   <h1>Available Cars in Los Angeles</h1>
-<span><i class="shopping-cart"></i></span>
+<span>&emsp;<i class="shopping-cart"></i></span>
+<span style="margin-top: 25;">View Shopping Cart</span>
 
  <div class="clear"></div>
  <!-- items -->
  <div class="items">
      <!-- Car1-->
      <div class="vehicle-card">
-         <img src="https://lh3.googleusercontent.com/proxy/r2MO2VsQfyf62kkjsiwcnxnGWPD6OoMSQFv_BYhB2OWVbWIuTcSLceDJcJXjxkVrjM7y7IJOg7rEYTMYNtUokHK1g23l3Rt3fS6P" alt="car1" />
+         <img src="https://static.fzinternal.com/common/mfg/Fiat/2015-fiat-500-r.png" alt="car1" />
           <h2>Fiat 500</h2>
       <p>Type: <em>Compact</em>
          <p>Price: <em>$40/day</em>
@@ -108,7 +194,7 @@ span {
     
       <!-- Car2-->
      <div class="vehicle-card">
-         <img src="https://banner2.cleanpng.com/20180529/goj/kisspng-2018-kia-sorento-car-2017-kia-sorento-2016-kia-sor-5b0d6e01c9ee46.6204113815276067858271.jpg" alt="car2" />
+         <img src="https://lh3.googleusercontent.com/proxy/Cc5NTrmgIbjIV-VhwzdgZhGLG-VLdGf24cOxY6dWtCGKZjapxK-ME_Jb_UNt2UO3uUPLfd_SlHZnOe9VTPBdngUQNWWWtH2TOoLy96WvFobbdABKrfFyfsjtZA" alt="car2" />
           <h2>Range Rover</h2>
         <p>Type: <em>SUV</em>
           <p>Price: <em>$190/day</em>
@@ -121,7 +207,7 @@ span {
   
      <!-- Car3 -->
      <div class="vehicle-card">
-         <img src="https://www.vhv.rs/dpng/d/78-787932_2016-chrysler-300c-transparent-hd-png-download.png" alt="car3" />
+         <img src="https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2021-Chrysler-300S-V8-trim.png" alt="car3" />
           <h2>Chrysler 300</h2>
         <p>Type: <em>Midsize</em>
           <p>Price: <em>$60/day</em>
@@ -134,7 +220,7 @@ span {
 
       <!-- Car4 -->
      <div class="vehicle-card">
-         <img src="https://www.vhv.rs/dpng/d/457-4574104_transparent-rolls-royce-png-rolls-royce-phantom-8.png" alt="car4" />
+         <img src="https://images.carandbike.com/car-images/large/rolls-royce/phantom/rolls-royce-phantom.jpg?v=6" alt="car4" />
           <h2>Rolls Royce Phantom</h2>
         <p>Type: <em>Luxury</em>
           <p>Price: <em>$600/day</em>
