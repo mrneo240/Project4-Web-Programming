@@ -1,0 +1,68 @@
+<?php
+session_start();
+
+require_once("registration/config.php");
+require_once("cart.php");
+
+/* Get post information */
+$id = intval($_POST['vehID']);
+
+$vehicle = "SELECT id, name, type, price, seats, transmission, img FROM inventory WHERE id={$id}";
+if ($stmt_veh = mysqli_prepare($link, $vehicle)) {
+  mysqli_stmt_execute($stmt_veh);
+  mysqli_stmt_bind_result($stmt_veh, $id_2, $name, $type, $price, $seats, $transmission, $img);
+  mysqli_stmt_fetch($stmt_veh);
+  mysqli_stmt_close($stmt_veh);
+} else {
+  die("ERROR: " . mysqli_error($link));
+}
+
+/* Get current city */
+$city = "";
+if(!isset($_SESSION['city'])){
+  /* default to Atlanta */
+  $city = "atlanta";
+} else {
+  $city = $_SESSION['city'];
+}
+
+/* Add car to cart */
+cart_add($id);
+
+?>
+  <!DOCTYPE html>
+  <html lang="en-us">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Rental Reservation Added!</title>
+    <link href="checkout.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="checkout-card">
+        <div class="title">
+          <p><span>Rental Reservation Added!</span> <br>
+            <?php echo $name; ?>
+          </p>
+        </div>
+        <div class="price-container">
+          <div class="price-card">
+            <img src="<?php echo $img; ?>" alt="car1">
+          </div>
+        </div>
+        <div class="detail-info">
+          <div class="info">
+            <h3>Price per day only $<?php echo $price; ?>!</h3>
+            <small>*Subject to additional taxes and fees</small>
+          </div>
+          <form action="<?php echo $city; ?>.html" id="return">
+            <button class="btn">Return</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>

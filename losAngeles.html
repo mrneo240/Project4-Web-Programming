@@ -1,91 +1,55 @@
 <?php
+session_start();
 require_once('templates.inc');
+require_once('cart.php');
+require_once("registration/config.php");
+
+$_city = "losangeles";
+/* Erase cart if user changed cities */
+if(!isset($_SESSION['city']) || $_SESSION['city'] != $_city){
+  cart_clear();
+}
+$_SESSION['city'] = $_city;
+
 ?>
-<!DOCTYPE html>
- <html lang="en-us">
- <head>
-     <meta charset="UTF-8">
-     <title>Los Angeles Cars</title>
-     <link href="city.css" type="text/css" rel="stylesheet">
- </head>
+  <!DOCTYPE html>
+  <html lang="en-us">
 
-<body>
-  <!-- wrapper -->
-  <? sidebar(); ?>
- <div class="block2"><img style="width: 90%; height: 115px" src="images/rand-ad1.jpg" alt="rand-ad1"></div>
-<div class="block"><img style="margin-top: 230px;margin-left: 40px;width: 116%; height: 660px" src="images/ad-three.jpg" alt="ad-three"></div>
-<div class="wrapper">
-  <h1>Available Cars in Los Angeles</h1>
-  <a style="text-decoration: none;" href="viewcart.html">
-    <span>&emsp;<i class="shopping-cart"></i></span>
-    <span>View Shopping Cart</span>
-  </a>
- <div class="clear"></div>
- <!-- items -->
- <div class="items">
-     <!-- Car1-->
-     <div class="vehicle-card">
-         <img src="images/2015-fiat-500-r.png" alt="car1" />
-          <h2>Fiat 500</h2>
-      <p>Type: <em>Compact</em>
-         <p>Price: <em>$40/day</em>
-           <p>Seats: <em>5</em>
-            <p>Transmission: <em>Automatic</em>
-              <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
+  <head>
+    <meta charset="UTF-8">
+    <title>Los Angeles Cars</title>
+    <link href="city.css" type="text/css" rel="stylesheet">
+  </head>
 
-      <!-- Car2-->
-     <div class="vehicle-card">
-        <img src="images/range.png" alt="car2" />
-          <h2>Range Rover</h2>
-        <p>Type: <em>SUV</em>
-          <p>Price: <em>$190/day</em>
-            <p>Seats: <em>5</em>
-             <p>Transmission: <em>Automatic</em>
-               <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
-
-     <!-- Car3 -->
-     <div class="vehicle-card">
-         <img src="images/2021-Chrysler-300S-V8-trim.png" alt="car3" />
-          <h2>Chrysler 300</h2>
-        <p>Type: <em>Midsize</em>
-          <p>Price: <em>$60/day</em>
-            <p>Seats: <em>5</em>
-             <p>Transmission: <em>Automatic</em>
-               <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
-
-      <!-- Car4 -->
-     <div class="vehicle-card">
-         <img src="images/rolls-royce-phantom.jpg" alt="car4" />
-          <h2>Rolls Royce Phantom</h2>
-        <p>Type: <em>Luxury</em>
-          <p>Price: <em>$600/day</em>
-            <p>Seats: <em>5</em>
-             <p>Transmission: <em>Automatic</em>
-               <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
-
-     <div id="signout">
-        <a href="registration/logout.php">
-          <img src="images/logout.png" class="signout" alt="signout">
+  <body>
+    <!-- wrapper -->
+    <? sidebar(); ?>
+      <div class="block2"><img style="width: 88%; height: 110px" src="images/phone-ad2.png" alt="phone-ad2"></div>
+      <div class="block"><img style="margin-top: 225px;margin-left: 40px;width: 130%; height: 660px" src="images/ad-one.png" alt="ad-one"></div>
+      <div class="wrapper">
+        <h1>Available Cars in Los Angeles:</h1>
+        <a style="text-decoration: none;" href="viewcart.html">
+          <span>&emsp;<i class="shopping-cart"></i></span>
+          <span>View Shopping Cart</span>
         </a>
-    </div>
 
- </div>
- <!--/ items -->
-</div>
-<!--/ wrapper -->
-</body>
+        <div class="clear"></div>
+        <!-- items -->
+        <div class="items">
+          <?php
+          get_cars($_city);
+          ?>
+            <div id="signout">
+              <a href="registration/logout.php">
+                <img src="images/logout.png" class="signout" alt="signout">
+              </a>
+            </div>
+
+        </div>
+        <!--/ items -->
+      </div>
+      <!--/ wrapper -->
+  </body>
 
 
-</html>
+  </html>

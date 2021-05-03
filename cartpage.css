@@ -71,7 +71,7 @@ body {
 	border-radius: 5px;
 }
 
-.cart-total p{
+.cart-total p, label{
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 30px;
@@ -79,7 +79,7 @@ body {
 
 }
 
-.cart-total a{
+.cart-total button{
 	display: block;
 	text-align: center;
 	line-height: 40px;
@@ -88,7 +88,7 @@ body {
 	text-decoration: none;
 }
 
-.cart-total a:hover{
+.cart-total button:hover{
 	background-color: rgb(0, 255, 76);
 }
 
