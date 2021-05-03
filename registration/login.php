@@ -12,13 +12,13 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 require_once "config.php";
- 
+
 $username = "";
 $password = "";
 $loginUser_err = "";
 $loginPass_err = "";
 $validationFail = 0;
- 
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check username and password to ensure not empty
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = $_POST["password"];
     }
-    
+
     // If no errors
     if($validationFail == 0){
         $mysql = "SELECT id, username, password FROM users WHERE username = ?";
@@ -46,16 +46,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($statement)){
                 mysqli_stmt_store_result($statement);
                 // Check if username exists within database
-                if(mysqli_stmt_num_rows($statement) == 1){                    
+                if(mysqli_stmt_num_rows($statement) == 1){
                     mysqli_stmt_bind_result($statement, $id, $username, $hashedpw);
                     if(mysqli_stmt_fetch($statement)){
                         //php function that verifies password
                         if(password_verify($password, $hashedpw)){
-                            session_start();
                             // Store data in session variables to store car rental info
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;
                             // Redirect user to home page
                             header("location: ../home.html");
                         } else{

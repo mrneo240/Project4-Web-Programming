@@ -55,6 +55,10 @@
     flex-direction:column;
   }
 
+.price-card img {
+  width: 100%;
+}
+
   .input-field{
     flex-direction:column;
     margin-top: 20px;

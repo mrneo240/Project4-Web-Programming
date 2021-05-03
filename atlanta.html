@@ -1,92 +1,60 @@
 <?php
+session_start();
 require_once('templates.inc');
+require_once("registration/config.php");
+
+$_city = "atlanta";
+/* Erase cart if user changed cities */
+if(!isset($_SESSION['city']) || $_SESSION['city'] != $_city){
+  cart_clear();
+}
+$_SESSION['city'] = $_city;
+
 ?>
-<!DOCTYPE html>
- <html lang="en-us">
- <head>
-     <meta charset="UTF-8">
-     <title>Atlanta Cars</title>
-     <link href="city.css" type="text/css" rel="stylesheet">
- </head>
+  <!DOCTYPE html>
+  <html lang="en-us">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Atlanta Cars</title>
+    <link href="city.css" type="text/css" rel="stylesheet">
+  </head>
+  <style>
+
+  </style>
+
+  <body>
+    <pre>
+      <?php print_r($_SESSION); ?>
+    </pre>
+    <!-- wrapper -->
+    <? sidebar(); ?>
+      <div class="block2"><img style="width: 88%; height: 110px" src="images/phone-ad2.png" alt="phone-ad2"></div>
+      <div class="block"><img style="margin-top: 225px;margin-left: 40px;width: 130%; height: 660px" src="images/ad-one.png" alt="ad-one"></div>
+      <div class="wrapper">
+        <h1>Available Cars in Atlanta:</h1>
+        <a style="text-decoration: none;" href="viewcart.html">
+          <span>&emsp;<i class="shopping-cart"></i></span>
+          <span>View Shopping Cart</span>
+        </a>
+
+        <div class="clear"></div>
+        <!-- items -->
+        <div class="items">
+          <?php
+          get_cars($_city);
+          ?>
+            <div id="signout">
+              <a href="registration/logout.php">
+                <img src="images/logout.png" class="signout" alt="signout">
+              </a>
+            </div>
+
+        </div>
+        <!--/ items -->
+      </div>
+      <!--/ wrapper -->
+  </body>
 
 
-<body>
-  <!-- wrapper -->
-  <? sidebar(); ?>
- <div class="block2"><img style="width: 88%; height: 110px" src="images/phone-ad2.png" alt="phone-ad2"></div>
-<div class="block"><img style="margin-top: 225px;margin-left: 40px;width: 130%; height: 660px" src="images/ad-one.png" alt="ad-one"></div>
-<div class="wrapper">
-  <h1>Available Cars in Atlanta:</h1>
-  <a style="text-decoration: none;" href="viewcart.html">
-    <span>&emsp;<i class="shopping-cart"></i></span>
-    <span>View Shopping Cart</span>
-  </a>
-
- <div class="clear"></div>
- <!-- items -->
- <div class="items">
-     <!-- Car1-->
-     <div class="vehicle-card">
-         <img src="images/mercedes_PNG1861.png" alt="car1" />
-          <h2>Mercedes G-Wagon</h2>
-      <p>Type: <em>Luxury</em>
-         <p>Price: <em>$200/day</em>
-           <p>Seats: <em>5</em>
-            <p>Transmission: <em>Automatic</em>
-              <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
-
-      <!-- Car2-->
-     <div class="vehicle-card">
-         <img src="images/spark_lrg.jpg" alt="car2" />
-          <h2>Chevrolet Spark</h2>
-        <p>Type: <em>Compact</em>
-          <p>Price: <em>$40/day</em>
-            <p>Seats: <em>5</em>
-             <p>Transmission: <em>Automatic</em>
-               <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
-
-     <!-- Car3 -->
-     <div class="vehicle-card">
-         <img src="images/8476eeee97debca61deb8265ea9f0214x.png" alt="car3" />
-          <h2>Jeep Grand Cherokee</h2>
-        <p>Type: <em>SUV</em>
-          <p>Price: <em>$70/day</em>
-            <p>Seats: <em>5</em>
-             <p>Transmission: <em>Automatic</em>
-               <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
-
-      <!-- Car4 -->
-     <div class="vehicle-card">
-         <img src="images/302-3021721_toyota-camry-toyota-yaris-hybrid-luna.png" alt="car4" />
-          <h2>Toyota Camry</h2>
-        <p>Type: <em>Midsize</em>
-          <p>Price: <em>$60/day</em>
-            <p>Seats: <em>5</em>
-             <p>Transmission: <em>Automatic</em>
-               <p>Air Conditioning: <em>✓</em>
-         </p>
-         <button class="add-to-cart" type="button">Reserve</button>
-     </div>
-     <div id="signout">
-      <a href="registration/logout.php">
-          <img src="images/logout.png" class="signout" alt="signout">
-      </a>
-   </div>
-
- </div>
- <!--/ items -->
-</div>
-<!--/ wrapper -->
-</body>
-
-
-</html>
+  </html>
