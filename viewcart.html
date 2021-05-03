@@ -3,36 +3,84 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Rental Car</title>
-    <link href="style.css" type="text/css" rel="stylesheet">
+    <title>Shopping Cart</title>
+    <link href="cartpage.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="selectedCars">
-        <p>Selected Car Div</p>
-    </div>
-    <div class="duration">
-        <p>Duration of rental</p>
-    </div>
-    <div class="parking">
-        <p>Pre-Pay Parking</p>
-    </div>
-    <div class="cost">
-        <p>Total Cost</p>
-    </div>
+    
+<div class="container">
+	<h1>Shopping Cart</h1>
+	<div class="cart">
+		<div class="products">
 
-    <a href="checkout.html">
-        <button>Checkout</button>
+            <!-- Product one -->
+			<div class="product">
+				<img src="images/302-3021721_toyota-camry-toyota-yaris-hybrid-luna.png">
+				<div class="vehicle-info">
+					<h3 class="vehicle-name">Vehicle one test</h3>
+					<h4 class="vehicle-price">$60/day</h4>
+                    <div class="elem-group inlined">
+                        <label for="checkin-date">Check-in Date</label>
+                        <input type="date" id="checkin-date" name="checkin" required>
+                      </div>
+                      <div class="elem-group inlined">
+                        <label for="checkout-date">Check-out Date</label>
+                        <input type="date" id="checkout-date" name="checkout" required>
+                      </div>	
 
-    </a>
+					<p class="vehicle-remove">
+						<span class="remove">Remove</span>
+					</p>
 
+				</div>
 
+			</div>
 
-    <div id="w3c">
-        <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
-        <a href="https://jigsaw.w3.org/css-validator/#validate_by_input"><img src="images/css.png" alt="css val"></a>
-    </div>
+            <!-- Product two .... but user should only checkout for one vehicle. This is a just a test
+			<div class="product">
+				<img src="bag1.jpg">
+				<div class="vehicle-info">
+					<h3 class="vehicle-name">Vehicle Two</h3>
+					<h4 class="vehicle-price">$60</h4>
+                    <div class="elem-group inlined">
+                        <label for="checkin-date">Check-in Date</label>
+                        <input type="date" id="checkin-date" name="checkin" required>
+                      </div>
+                      <div class="elem-group inlined">
+                        <label for="checkout-date">Check-out Date</label>
+                        <input type="date" id="checkout-date" name="checkout" required>
+                      </div>	
+					<p class="vehicle-remove">
+						<span class="remove">Remove</span>
+					</p>
+				</div>
+			</div>
+            -->
+		</div>
+
+        <!-- Cart info (total price)-->
+
+		<div class="cart-total">
+			<p>
+				<span>Total Price</span>
+				<span>$60</span>
+			</p>
+			<p>
+				<span>Number of Items</span>
+				<span>2</span>
+			</p>
+			<p>
+				<span>Discount Code</span>
+				<form action="/action_page.php">
+                    <label for="fname"></label>
+                    <input type="text" id="fname" name="fname"><br><br>
+                    <input type="submit" value="Submit">
+                  </form>
+			</p>
+			<a href="#">Proceed to Checkout</a>
+		</div>
+	</div>
+</div>
 </body>
-
-
 </html>
