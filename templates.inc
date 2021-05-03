@@ -80,16 +80,16 @@ function get_single_car($id)
 function get_cars($city)
 {
   global $link;
-  $inventory = "SELECT id FROM {$city}";
+  $inventory = "SELECT id, available FROM {$city}";
 
   if ($stmt = mysqli_prepare($link, $inventory)) {
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id);
+    mysqli_stmt_bind_result($stmt, $id, $available);
     /* fetch available inventory */
     $cars = array();
     while (mysqli_stmt_fetch($stmt)) {
       /* parking above 100 */
-      if ($id < 100)
+      if ($id < 100 && $available > 0)
         array_push($cars, $id);
     }
     mysqli_stmt_close($stmt);

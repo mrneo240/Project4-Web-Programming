@@ -1,0 +1,67 @@
+<?php
+session_start();
+
+require_once("registration/config.php");
+require_once("cart.php");
+
+$num_items = cart_num();
+if($num_items == 0){
+	header("location: home.html");
+}
+
+/* Get current city */
+$city = "";
+if(!isset($_SESSION['city'])){
+  /* default to Atlanta */
+  $city = "atlanta";
+} else {
+  $city = $_SESSION['city'];
+}
+
+/* Get post information */
+$cart = cart_get();
+$car_id = $cart[0]['id'];
+
+$order_id = cart_place_order($city);
+order_update_stock($city, $car_id);
+cart_clear();
+$price = intval($_POST['parking']) +intval($_POST['cost']);
+
+?>
+  <!DOCTYPE html>
+  <html lang="en-us">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Rental Confirmation</title>
+    <link href="checkout.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="checkout-card">
+        <div class="title">
+          <p><span>Rental Confirmation!</span> <br> Order #
+            <?php echo $order_id; ?>
+          </p>
+        </div>
+        <div class="price-container">
+          <div class="price-card">
+            <img src="images/checkmark.svg" alt="checkmark" height="320">
+          </div>
+        </div>
+        <div class="detail-info">
+          <div class="info">
+            <h3>Total Cost $
+              <?php echo $price; ?>!</h3>
+            <small>*Subject to additional taxes and fees</small>
+          </div>
+          <form action="home.html" id="return">
+            <button class="btn">Home</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>
