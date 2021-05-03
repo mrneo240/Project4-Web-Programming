@@ -81,7 +81,6 @@ body {
 .cart-total a{
 	display: block;
 	text-align: center;
-	height: 40px;
 	line-height: 40px;
 	background-color: rgb(12, 145, 12);
 	color: white;
@@ -89,7 +88,7 @@ body {
 }
 
 .cart-total a:hover{
-	background-color: red;
+	background-color: rgb(0, 255, 76);
 }
 
 div.elem-group {
