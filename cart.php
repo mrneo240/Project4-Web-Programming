@@ -70,16 +70,23 @@ function cart_place_order($total_cost)
   $stmt_city = mysqli_prepare($link, $insert_order);
   if (!$stmt_city) {
     die("ERROR: Could not prepare order. " . mysqli_error($link));
-    mysqli_query($link, 'DROP DATABASE ' . DB_DATABASE);
   }
-  if (!mysqli_stmt_bind_param($stmt_city, 'isiiis', $_SESSION['id'], $cart_string, $total_cost, $_SESSION['reserve_start'], $_SESSION['reserve_end'], $_SESSION['city'])) {
+  if (!mysqli_stmt_bind_param(
+    $stmt_city,
+    'isiiis',
+    $_SESSION['id'],
+    $cart_string,
+    $total_cost,
+    $_SESSION['reserve_start'],
+    $_SESSION['reserve_end'],
+    $_SESSION['city']
+  )) {
     die("ERROR: Could not bind order. " . mysqli_error($link));
-    mysqli_query($link, 'DROP DATABASE ' . DB_DATABASE);
     return;
   }
   if (!mysqli_stmt_execute($stmt_city)) {
     die("ERROR: Could not add order. " . mysqli_error($link));
-    mysqli_query($link, 'DROP DATABASE ' . DB_DATABASE);
+    return;
   }
   return mysqli_insert_id($link);
 }
