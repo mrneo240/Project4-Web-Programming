@@ -25,7 +25,7 @@ Project #4: Car Rental
 
         if (mysqli_query($link, $sql)) {
             /* Created successfully now add tables*/
-            $users = 'CREATE TABLE '.DB_DATABASE.'.users ( id INT NOT NULL , username VARCHAR(20) NOT NULL , password VARCHAR(20) NOT NULL , created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (id))';
+            $users = 'CREATE TABLE '.DB_DATABASE.'.users ( id INT NOT NULL AUTO_INCREMENT, username VARCHAR(20) NOT NULL , password VARCHAR(60) NOT NULL , created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (id))';
             if(!mysqli_query($link, $users)){
                 mysqli_query($link, 'DROP DATABASE '.DB_DATABASE);
                 die("ERROR: Could not create table. " . mysqli_error($link));

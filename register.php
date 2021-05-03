@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Set parameters
             $insert_username = $username;
-            $insert_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $insert_password = password_hash($password, PASSWORD_BCRYPT); // Creates a password hash
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){

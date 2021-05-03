@@ -9,9 +9,9 @@ function sidebar(){
   <br><br><br>
   <a class="btn_v2 options" type="button" href="choose-city.html"><b>Cities</b></a>
   <br><br><br>
-  <a class="btn_v2 options" type="button" href="choose-city.html"><b>Profile</b></a>
+  <a class="btn_v2 options" type="button" href="#"><b>Profile</b></a>
   <br><br><br>
-  <a class="btn_v2 options" type="button" href="#"><b>Log Out</b></a>
+  <a class="btn_v2 options" type="button" href="logout.php"><b>Log Out</b></a>
   </div>
 HDC;
 
