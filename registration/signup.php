@@ -8,7 +8,6 @@ Referenced: https://www.php.net/manual/en/mysqli-statement.bind-param.php
 <?php
 // Include config file
 require_once "config.php";
-
 // Define variables user & pass and their errors
 $username = "";
 $password = "";
@@ -65,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_bind_param($statement, "ss", $insert_username, $insert_password);
             // Set parameters
             $insert_username = $username;
-            $insert_password = $password; 
+            $insert_password = password_hash($password, PASSWORD_DEFAULT);
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($statement)){
                 // Redirect to login page
