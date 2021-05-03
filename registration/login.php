@@ -1,6 +1,6 @@
 <!--
 Johnathan Nguyen
-WEB PROGRAMMING 
+WEB PROGRAMMING
 Project #4: Car Rental
 Referenced: https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
 -->
@@ -8,23 +8,23 @@ Referenced: https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system
 <?php
 // Initialize the session
 session_start();
- 
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: home.html");
+    header("location: ../home.html");
     exit;
 }
- 
+
 // Include config file
 require_once "config.php";
- 
+
 // Define variables and initialize with empty values
 $username = "";
 $password = "";
 $loginUser_err = "";
 $loginPass_err = "";
 $login_err = "";
- 
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check username and password to ensure not empty
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = $_POST["password"];
     }
-    
+
     // If both username and password errors are not empty
     if(empty($loginUser_err) && empty($loginPass_err)){
         $mysql = "SELECT id, username, password FROM users WHERE username = ?";
@@ -48,19 +48,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $insert_username = $username;
             // Execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                mysqli_stmt_store_result($stmt);
+               mysqli_stmt_store_result($stmt);
                 // Check if username exists within database, then check its hashed password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                if(mysqli_stmt_num_rows($stmt) == 1){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
                             // Store data in session variables to store car rental info
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;
                             // Redirect user to home page
                             header("location: home.html");
                         } else{
@@ -92,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <h1>ENTER LOGIN</h1>
     <div>
         <form id="loginForm" method="post">
-        
+
             <table>
                 <tr>
                     <td>Enter Username: </td>
