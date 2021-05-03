@@ -1,156 +1,160 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Select City</title>
-  </head>
-
-  <body>
-    <div class ="headerTitle"> <h1>Select a city to see available offers</h1></div>
-    <div class="grid">
-      <div class="grid-item">
-        <div class="card">
-          <img class="card-img" src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Atlanta" />
-          <div class="card-content">
-            <h1 class="card-header">Atlanta</h1>
-           
-            <a href="atlanta.html" style="text-decoration:none;"><button class ="card-btn" type="button">Find Available Cars</button></a>
-          </div>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="card">
-          <img
-            class="card-img"
-            src="https://images.unsplash.com/photo-1524168272322-bf73616d9cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
-            alt="City"
-          />
-          <div class="card-content">
-            <h1 class="card-header">Chicago</h1>
-            
-            <a href="chicago.html" style="text-decoration:none;"><button class ="card-btn" type="button">Find Available Cars</button></a>
-          </div>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="card">
-          <img class="card-img" 
-          src="https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Los Angeles" />
-          <div class="card-content">
-            <h1 class="card-header">Los Angeles</h1>
-            
-            <a href="losAngeles.html" style="text-decoration:none;"><button class ="card-btn" type="button">Find Available Cars</button></a>
-          </div>
-        </div>
-      </div>
-      <div id="signout">
-        <a href="registration/logout.php">
-            <img src="images/logout.png" class="signout">
-        </a>
-     </div>
-    </div>
-
-
-<style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select City</title>
+  <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-}
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
+    html {
+      box-sizing: border-box;
+      font-size: 62.5%;
+    }
 
-body {
-  background-color: rgba(82, 62, 114, 0.589);
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50px;
-}
+    body {
+      margin-top: 25em;
+      background-color: rgba(82, 62, 114, 0.589);
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+    }
 
-.grid {
-  display: grid;
-  width: 114em;
-  grid-gap: 6rem;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  align-items: start;
-}
+    .grid {
+      display: grid;
+      width: 114em;
+      grid-gap: 6rem;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      align-items: start;
+    }
 
-.grid-item {
-  background-color: #fff;
-  border-radius: 0.4rem;
-  overflow: hidden;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: 0.2s;
-}
+    .grid-item {
+      background-color: #fff;
+      border-radius: 0.4rem;
+      overflow: hidden;
+      box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-.grid-item:hover {
-  transform: translateY(-0.5%);
-  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
-}
+    .grid-item:hover {
+      transform: translateY(-0.5%);
+      box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
+    }
 
-.card-img {
-  display: block;
-  width: 100%;
-  height: 20rem;
-  object-fit: cover;
-}
+    .card-img {
+      display: block;
+      width: 100%;
+      height: 20rem;
+      object-fit: cover;
+    }
 
-.card-content {
-  padding: 3rem;
-}
+    .card-content {
+      padding: 3rem;
+    }
 
-.card-header {
-  font-size: 3rem;
-  font-weight: 500;
-  color: #0d0d0d;
-  margin-bottom: 1.5rem;
-}
-
-
-.card-btn {
-  width: 100%;
-  padding: 20px;
-  font-size: 20px;
-  text-align: center;
-  color: #ffffff;
-  background-color: #70b8ce;
-  border-radius: 5px;
-  border:none;
-}
-
-.headerTitle {
-height: 100px;
-width: 500px;
-color: white;
-
-}
-
-.signout{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 10px;
-    margin-right: 10px;
-    height: 60px;
-    width: 60px;
-}
-
-.signout:hover{
-    transform: scale(1.2);
-}
+    .card-header {
+      font-size: 3rem;
+      font-weight: 500;
+      color: #0d0d0d;
+      margin-bottom: 1.5rem;
+    }
 
 
+    .card-btn {
+      width: 100%;
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+      color: #ffffff;
+      background-color: #70b8ce;
+      border-radius: 5px;
+      border: none;
+    }
 
-    </style>
+    .headerTitle {
+      height: 100px;
+      width: 500px;
+      color: white;
+
+    }
+
+    .signout {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 10px;
+      margin-right: 10px;
+      height: 60px;
+      width: 60px;
+    }
+
+    .signout:hover {
+      transform: scale(1.2);
+    }
+  </style>
 
 
 
-  </body>
+</head>
+
+<body>
+  <div class="headerTitle">
+    <h1>Select a city to see available offers</h1>
+  </div>
+  <div class="grid">
+    <div class="grid-item">
+      <div class="card">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+          alt="Atlanta" />
+        <div class="card-content">
+          <h1 class="card-header">Atlanta</h1>
+
+          <a href="atlanta.html" style="text-decoration:none;" class="card-btn">Find Available Cars</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1524168272322-bf73616d9cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
+          alt="City" />
+        <div class="card-content">
+          <h1 class="card-header">Chicago</h1>
+
+          <a href="chicago.html" style="text-decoration:none;" class="card-btn">Find Available Cars</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+          alt="Los Angeles" />
+        <div class="card-content">
+          <h1 class="card-header">Los Angeles</h1>
+
+          <a href="losAngeles.html" style="text-decoration:none;" class="card-btn">Find Available Cars</a>
+        </div>
+      </div>
+    </div>
+    <div id="signout">
+      <a href="registration/logout.php">
+        <img src="images/logout.png" class="signout" alt="signout">
+      </a>
+    </div>
+  </div>
+
+
+
+</body>
+
 </html>
