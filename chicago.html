@@ -16,9 +16,10 @@ require_once('templates.inc');
 <div class="block"><img style="margin-top: 225px;margin-left: 40px;width: 116%; height: 660px"src="images/ad-two.jpg"></div>
 <div class="wrapper">
   <h1>Available Cars in Chicago</h1>
-<span>&emsp;<i class="shopping-cart"></i></span>
-<span style="margin-top: 25;">View Shopping Cart</span>
-
+  <a style="text-decoration: none;" href="viewcart.html">
+    <span>&emsp;<i class="shopping-cart"></i></span>
+    <span style="margin-top: 25;">View Shopping Cart</span>
+  </a>
  <div class="clear"></div>
  <!-- items -->
  <div class="items">
@@ -73,7 +74,7 @@ require_once('templates.inc');
          </p>
          <button class="add-to-cart" type="button">Reserve</button>
      </div>
-     
+
      <div id="signout">
       <a href="registration/logout.php">
           <img src="images/logout.png" class="signout">
