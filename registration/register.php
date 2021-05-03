@@ -3,6 +3,7 @@ Johnathan Nguyen
 WEB PROGRAMMING
 Project #4: Car Rental
 Referenced: https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
+Referenced: https://www.php.net/manual/en/mysqli-statement.bind-param.php
 -->
 <?php
 // Include config file
@@ -13,25 +14,26 @@ $username = "";
 $password = "";
 $signupUser_err = "";
 $signupPass_err = "";
-
-// Processing form data when form is submitted
+$validationFail = 0;
+ 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validation for username
     if(empty($_POST["username"])){
-        $signupUser_err = "Please enter a username.";
+        $signupUser_err = "Username not entered";
+        $validationFail++;
     } else{
         // Selecting ID for username so id will auto increment
         $mysql = "SELECT id FROM users WHERE username = ?";
-        if($stmt = mysqli_prepare($link, $mysql)){
+        if($statement = mysqli_prepare($link, $mysql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $insert_username);
+            mysqli_stmt_bind_param($statement, "s", $insert_username);
             $insert_username = $_POST["username"];
             // execute statement that prepared earlier
-            if(mysqli_stmt_execute($stmt)){
-                mysqli_stmt_store_result($stmt);
+            if(mysqli_stmt_execute($statement)){
+                mysqli_stmt_store_result($statement);
                 //Check to see if username taken
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $signupUser_err = "This username is already taken.";
+                if(mysqli_stmt_num_rows($statement) == 1){
+                    $signupUser_err = "Username already exists.";
                 } else{
                     //set username to input value
                     $username = $_POST["username"];
@@ -40,42 +42,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "Please try again later.";
             }
             // Close statement
-            mysqli_stmt_close($stmt);
+            mysqli_stmt_close($statement);
         }
     }
     // Validation for password
     if(empty($_POST["password"])){
-        $signupPass_err = "Please enter a password.";
+        $signupPass_err = "Password not entered"; 
+        $validationFail++;
     } elseif(strlen($_POST["password"]) < 8){
-        $signupPass_err = "Password must have atleast 8 characters.";
+        $signupPass_err = "Password must be > 7 characters";
+        $validationFail++;
     } else{
         $password = $_POST["password"];
     }
 
     // If no errors, insert into database
-    if(empty($signupUser_err) && empty($signupPass_err)){
+    if($validationFail == 0){
         // mysql insert statement
         $mysql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        if($stmt = mysqli_prepare($link, $mysql)){
+        if($statement = mysqli_prepare($link, $mysql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $insert_username, $insert_password);
-
+            mysqli_stmt_bind_param($statement, "ss", $insert_username, $insert_password);
             // Set parameters
             $insert_username = $username;
-            $insert_password = password_hash($password, PASSWORD_BCRYPT); // Creates a password hash
-
+            $insert_password = $password; 
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
+            if(mysqli_stmt_execute($statement)){
                 // Redirect to login page
                 header("location: login.php");
-            } else{
-                echo "Try again later.";
-            }
+            } 
             // Close statement
-            mysqli_stmt_close($stmt);
+            mysqli_stmt_close($statement);
         }
     }
-    // Close connection
     mysqli_close($link);
 }
 ?>

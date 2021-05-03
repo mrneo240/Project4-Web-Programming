@@ -16,7 +16,7 @@ Project #4: Car Rental
 
     // Check connection
     if($link === false){
-        die("ERROR: Could not connect. " . mysqli_connect_error());
+        die("ERROR: Could not connect to database. " . mysqli_connect_error());
     }
 
     $project_db = mysqli_select_db($link, DB_DATABASE);
