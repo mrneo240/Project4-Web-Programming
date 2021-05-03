@@ -1,81 +1,121 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<?php
+session_start();
 
-<head>
+require_once("registration/config.php");
+require_once("cart.php");
+
+$num_items = cart_num();
+if($num_items == 0){
+	header("location: home.html");
+}
+
+/* get dates */
+$_SESSION['reserve_start'] = $_POST['checkin'];
+$_SESSION['reserve_end'] = $_POST['checkout'];
+$date_start = DateTime::createFromFormat('Y-m-d H:i:s', $_SESSION['reserve_start'].' 00:00:00', new DateTimeZone('EST'));
+$date_end = DateTime::createFromFormat('Y-m-d H:i:s', $_SESSION['reserve_end'].' 00:00:00', new DateTimeZone('EST'));
+$timestamp_start = $date_start->getTimestamp();
+$timestamp_end = $date_end->getTimestamp();
+$days = intval(date_diff($date_start,$date_end)->format("%a"));
+
+$cost = intval($_POST['cost']) * $days;
+
+/* CC validation from: https://www.the-art-of-web.com/cc-validate.html */
+?>
+  <!DOCTYPE html>
+  <html lang="en-us">
+
+  <head>
     <meta charset="UTF-8">
     <title>Rental Car</title>
     <link href="checkout.css" type="text/css" rel="stylesheet">
-</head>
+    <script type="text/javascript">
+      var cc_number_saved = "";
 
-<body>
+      function checkLuhn(input) {
+        var sum = 0;
+        var numdigits = input.length;
+        var parity = numdigits % 2;
+        for (var i = 0; i < numdigits; i++) {
+          var digit = parseInt(input.charAt(i))
+          if (i % 2 == parity) digit *= 2;
+          if (digit > 9) digit -= 9;
+          sum += digit;
+        }
+        return (sum % 10) == 0;
+      }
+
+      function checkForm() {
+        let form = document.forms["checkout"];
+        if (form.card_number.value.length == 0) {
+          return false;
+        }
+        if (!checkLuhn(form.card_number.value.replace(/[^\d]/g, ''))) {
+          alert("Invalid Credit Card Number");
+          form.card_number.focus();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+
+  <body>
     <div class="container">
-        <div class="checkout-card">
-          <div class="title">
-            <p><span>Complete checkout</span> <br> Want to purchase pre-paid parking?</p>
-          </div>
+      <div class="checkout-card">
+        <div class="title">
+          <p><span>Complete checkout</span> <br> Want to purchase pre-paid parking?</p>
+        </div>
+        <form class="input-field" id="checkout" method="POST" action="confirm.html" onsubmit="return checkForm()">
           <div class="price-container">
             <div class="price-card">
-              <input name="price" id="parking" type="radio">
-              <div class="content">
-                Parking fee
-                <span>$15</span>
-              </div>
-              <label for="parking"></label>
+              <input id="priority" name="parking" type="radio" value="10">
+              <div class="content"><span>Priority Parking</span></div>
+              <label for="priority"><span>$10/day</span></label>
             </div>
-
             <div class="price-card">
-              <input name="price" type="radio" id="none">
-              <div class="content">
-                None
-                <span>First Come First Serve</span>
-              </div>
-              <label for="none"></label>
+              <input id="free" name="parking" type="radio" value="0">
+              <div class="content"><span>First Come First Serve</span></div>
+              <label for="free">Free</label>
             </div>
-
-
             <div class="price-card">
-                <input name="price" type="radio" id="none">
-                <div class="content">
-                  VIP
-                  <span>$100/month</span>
-                </div>
-                <label for="none"></label>
-              </div>
-
+              <input id="vip" name="parking" type="radio" value="25" checked>
+              <div class="content"><span>VIP Parking</span></div>
+              <label for="vip">$25/day</label>
+            </div>
           </div>
           <div class="detail-info">
             <div class="info">
-              <h3>Total billed $50</h3>
+              <h3>Total billed: $
+                <?php echo $cost;?> + Parking</h3>
               <small>Enter your credit card detail to reserve your vehicle</small>
             </div>
 
-            <form class = "input-field">
-                <label for="input">Name on Card</label><br>
-                <input type="text" id="Name_on_card" placeholder="Name"><br>
-
-              </form>
-
+            <label for="input">Name on Card</label><br>
+            <input type="text" id="card_name" name="card_name" placeholder="Name" required><br>
 
             <div class="input-field">
               <label for="card_number">Card number</label>
-              <input type="number" id="card_number" placeholder="Card Number">
+              <input type="text" maxlength="16" id="card_number" placeholder="Card Number" required>
             </div>
             <div class="grid">
               <div class="input-field">
                 <label for="expire_date">Expire date</label>
-                <input type="date" id="expire_date">
+                <input type="month" id="card_expire" name="card_expire" required>
               </div>
               <div class="input-field">
                 <label for="card_code">Card code</label>
-                <input type="number" id="card_code" placeholder="CVV">
+                <input type="number" id="card_code" name="card_code" maxlength="4" placeholder="CVV" required>
               </div>
             </div>
 
-            <button class="btn">Reserve</button>
+            <input type="hidden" name="cost" id="cost" value="<?php echo $cost;?>">
+            <button class="btn" type="submit">Reserve</button>
           </div>
-        </div>
+        </form>
       </div>
-</body>
+    </div>
+  </body>
 
 
-</html>
+  </html>

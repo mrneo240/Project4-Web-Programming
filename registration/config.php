@@ -59,7 +59,7 @@ if (!mysqli_select_db($link, DB_DATABASE)) {
         }
 
         /* Finally a table to hold orders */
-        $orders = 'CREATE TABLE ' . DB_DATABASE . '.orders ( id INT NOT NULL AUTO_INCREMENT , user_id INT NOT NULL , date_start TIMESTAMP NOT NULL , date_end TIMESTAMP NOT NULL , cart VARCHAR(256) NOT NULL , price INT NOT NULL , PRIMARY KEY (id))';
+        $orders = 'CREATE TABLE ' . DB_DATABASE . '.orders ( id INT NOT NULL AUTO_INCREMENT , user_id INT NOT NULL , date_start TIMESTAMP NOT NULL , date_end TIMESTAMP NOT NULL , cart VARCHAR(256) NOT NULL , price INT NOT NULL , city VARCHAR(64) NOT NULL, PRIMARY KEY (id))';
         if (!mysqli_query($link, $orders)) {
             die("ERROR: Could not create table: Inventory. " . mysqli_error($link));
             mysqli_query($link, 'DROP DATABASE ' . DB_DATABASE);
@@ -125,7 +125,7 @@ function seed_demo_data()
 
     insert_vehicle('Fiat 500', 'Compact', 40, 5, 'Automatic', 'images/2015-fiat-500-r.png');
     insert_vehicle('Chrysler 300', 'Midsize', 60, 5, 'Automatic', 'images/2021-Chrysler-300S-V8-trim.png');
-    insert_vehicle('Rolls Royce Phantom', 'Luxury', 70, 5, 'Automatic', 'images/rolls-royce-phantom.jpg');
+    insert_vehicle('Rolls Royce Phantom', 'Luxury', 600, 5, 'Automatic', 'images/rolls-royce-phantom.jpg');
 
     /* Setup location inventory */
     $insert_inventory = 'INSERT INTO atlanta (id, available) VALUES (?,?)';

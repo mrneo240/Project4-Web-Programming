@@ -33,9 +33,7 @@ if($num_items == 0){
           <div class="products">
             <?php $total = get_cart(); ?>
           </div>
-
           <!-- Cart info (total price)-->
-
           <div class="cart-total">
             <p>
               <span>Total Price Per Day</span>
@@ -54,6 +52,7 @@ if($num_items == 0){
               <input type="date" id="checkout-date" name="checkout" value="<?php echo date('Y-m-d',time()+(60*60*24*7)); ?>" required>
             </div>
             <br>
+            <input type="hidden" name="cost" id="cost" value="<?php echo $total;?>">
             <button href="checkout.html">Proceed to Checkout</a>
 				</form>
         </div>
