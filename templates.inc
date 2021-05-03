@@ -9,6 +9,7 @@
  */
 
 require_once("registration/config.php");
+require_once("cart.php");
 
 function sidebar()
 {
@@ -51,6 +52,31 @@ HDC;
   echo $html;
 }
 
+function get_single_car($id)
+{
+  global $link;
+  $arr = array();
+
+  $vehicle = "SELECT id, name, type, price, seats, transmission, img FROM inventory WHERE id={$id}";
+  if ($stmt_veh = mysqli_prepare($link, $vehicle)) {
+    mysqli_stmt_execute($stmt_veh);
+    mysqli_stmt_bind_result($stmt_veh, $id_2, $name, $type, $price, $seats, $transmission, $img);
+    mysqli_stmt_fetch($stmt_veh);
+    $arr['id'] = $id_2;
+    $arr['name'] = $name;
+    $arr['type'] = $type;
+    $arr['price'] = $price;
+    $arr['seats'] = $seats;
+    $arr['transmission'] = $transmission;
+    $arr['img'] = $img;
+    mysqli_stmt_close($stmt_veh);
+  } else {
+    die("ERROR: " . mysqli_error($link));
+  }
+
+  return $arr;
+}
+
 function get_cars($city)
 {
   global $link;
@@ -62,21 +88,46 @@ function get_cars($city)
     /* fetch available inventory */
     $cars = array();
     while (mysqli_stmt_fetch($stmt)) {
-      array_push($cars, $id);
+      /* parking above 100 */
+      if ($id < 100)
+        array_push($cars, $id);
     }
     mysqli_stmt_close($stmt);
     /* Now output each vehicle card */
     foreach ($cars as $id) {
-      $vehicle = "SELECT id, name, type, price, seats, transmission, img FROM inventory WHERE id={$id}";
-      if ($stmt_veh = mysqli_prepare($link, $vehicle)) {
-        mysqli_stmt_execute($stmt_veh);
-        mysqli_stmt_bind_result($stmt_veh, $id_2, $name, $type, $price, $seats, $transmission, $img);
-        mysqli_stmt_fetch($stmt_veh);
-        vehicle_card($id, $name, $type, $price, $seats, $transmission, $img);
-        mysqli_stmt_close($stmt_veh);
-      } else {
-        die("ERROR: " . mysqli_error($link));
-      }
+      $vehicle = get_single_car($id);
+      vehicle_card($vehicle['id'], $vehicle['name'], $vehicle['type'], $vehicle['price'], $vehicle['seats'], $vehicle['transmission'], $vehicle['img']);
     }
   }
+}
+
+function get_single_cart_item($id, $name, $img, $price)
+{
+  $html = <<<HDC
+  <div class="product">
+    <img src="{$img}" alt="product-img-{$id}">
+    <div class="vehicle-info">
+      <h3 class="vehicle-name">{$name}</h3>
+      <h4 class="vehicle-price">\${$price}/day</h4>
+      <button class="vehicle-remove" type="submit" name="remove_button" value="{$id}" formaction="viewcart.html">
+        <span class="remove">Remove</span>
+      </button>
+    </div>
+  </div><br>
+HDC;
+
+  echo $html;
+}
+
+function get_cart()
+{
+  $cost = 0;
+  $cart = cart_get();
+  foreach ($cart as $key => $item) {
+    $vehicle = get_single_car($item['id']);
+    $cost += intval($vehicle['price']);
+    get_single_cart_item($vehicle['id'], $vehicle['name'], $vehicle['img'], $vehicle['price']);
+  }
+
+  return $cost;
 }

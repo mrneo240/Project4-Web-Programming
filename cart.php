@@ -10,33 +10,52 @@
 
 function cart_add($id)
 {
-  echo "<pre>";
   /* Check if found an increment, otherwise add new */
   $found = false;
-  foreach($_SESSION['cart'] as $key => $val) {
-    if($val['id'] == $id){
-      echo "key = $key \{{$val['id']},{$val['num']}\}  \n";
+  foreach ($_SESSION['cart'] as $key => $val) {
+    if ($val['id'] == $id) {
       $found = $key;
+      break;
     }
   }
-  if ($found) {
+  if ($found !== false) {
     /* found, increment */
-    $_SESSION['cart'][$found]['num'] = intval($_SESSION['cart'][$found]['num'])+1;
+    $_SESSION['cart'][$found]['num'] = intval($_SESSION['cart'][$found]['num']) + 1;
   } else {
     /* not found */
     $el = array("id" => $id, "num" => 1);
     array_push($_SESSION['cart'], $el);
   }
-  echo "</pre>";
 }
 
 function cart_remove($id)
 {
-  $key = array_search($id, $_SESSION['cart']);
-  array_slice($_SESSION['cart'], $key, 1);
+  /* Check if found an increment, otherwise add new */
+  $found = false;
+  foreach ($_SESSION['cart'] as $key => $val) {
+    if ($val['id'] == $id) {
+      $found = $key;
+      break;
+    }
+  }
+  if ($found !== false) {
+    /* found, remove */
+    array_splice($_SESSION['cart'], $found, 1);
+  }
 }
+
 
 function cart_clear()
 {
   $_SESSION['cart'] = array();
+}
+
+function cart_get()
+{
+  return $_SESSION['cart'];
+}
+
+function cart_num()
+{
+  return count(cart_get());
 }

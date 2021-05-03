@@ -1,84 +1,63 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<?php
+session_start();
 
-<head>
+require_once("registration/config.php");
+require_once("cart.php");
+require_once("templates.inc");
+
+/* user removed vehicle */
+if (isset($_POST['remove_button'])) {
+	cart_remove($_POST['remove_button']);
+}
+
+$num_items = cart_num();
+if($num_items == 0){
+	header("location: home.html");
+}
+?>
+  <!DOCTYPE html>
+  <html lang="en-us">
+
+  <head>
     <meta charset="UTF-8">
     <title>Shopping Cart</title>
     <link href="cartpage.css" type="text/css" rel="stylesheet">
-</head>
+  </head>
 
-<body>
-    
-<div class="container">
-	<h1>Shopping Cart</h1>
-	<div class="cart">
-		<div class="products">
+  <body>
 
-            <!-- Product one -->
-			<div class="product">
-				<img src="images/302-3021721_toyota-camry-toyota-yaris-hybrid-luna.png" alt="toyota-yaris-hybrid">
-				<div class="vehicle-info">
-					<h3 class="vehicle-name">Vehicle one test</h3>
-					<h4 class="vehicle-price">$60/day</h4>
-                    <div class="elem-group inlined">
-                        <label for="checkin-date">Check-in Date</label>
-                        <input type="date" id="checkin-date" name="checkin" required>
-                      </div>
-                      <div class="elem-group inlined">
-                        <label for="checkout-date">Check-out Date</label>
-                        <input type="date" id="checkout-date" name="checkout" required>
-                      </div>	
+    <div class="container">
+      <h1>Shopping Cart</h1>
+      <form action="checkout.html" method="POST">
+        <div class="cart">
+          <div class="products">
+            <?php $total = get_cart(); ?>
+          </div>
 
-					<p class="vehicle-remove">
-						<span class="remove">Remove</span>
-					</p>
+          <!-- Cart info (total price)-->
 
-				</div>
-
-			</div>
-
-            <!-- Product two .... but user should only checkout for one vehicle. This is a just a test
-			<div class="product">
-				<img src="bag1.jpg">
-				<div class="vehicle-info">
-					<h3 class="vehicle-name">Vehicle Two</h3>
-					<h4 class="vehicle-price">$60</h4>
-                    <div class="elem-group inlined">
-                        <label for="checkin-date">Check-in Date</label>
-                        <input type="date" id="checkin-date" name="checkin" required>
-                      </div>
-                      <div class="elem-group inlined">
-                        <label for="checkout-date">Check-out Date</label>
-                        <input type="date" id="checkout-date" name="checkout" required>
-                      </div>	
-					<p class="vehicle-remove">
-						<span class="remove">Remove</span>
-					</p>
-				</div>
-			</div>
-            -->
-		</div>
-
-        <!-- Cart info (total price)-->
-
-		<div class="cart-total">
-			<p>
-				<span>Total Price</span>
-				<span>$60</span>
-			</p>
-			<p>
-				<span>Number of Items</span>
-				<span>2</span>
-			</p>
-			<p><span>Discount Code</span></p>
-				<form action="/action_page.php">
-                    <label for="fname"></label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <input type="submit" value="Submit">
-				</form><br>
-			<a href="checkout.html">Proceed to Checkout</a>
-		</div>
-	</div>
-</div>
-</body>
-</html>
+          <div class="cart-total">
+            <p>
+              <span>Total Price Per Day</span>
+              <span>$<?php echo $total ?></span>
+            </p>
+            <p>
+              <span>Number of Cars</span>
+              <span><?php echo $num_items ?></span>
+            </p>
+            <div class="elem-group">
+              <label for="checkin-date">Check-in Date</label>
+              <input type="date" id="checkin-date" name="checkin" value="<?php echo date('Y-m-d'); ?>" required>
+            </div>
+            <div class="elem-group">
+              <label for="checkout-date">Check-out Date</label>
+              <input type="date" id="checkout-date" name="checkout" value="<?php echo date('Y-m-d',time()+(60*60*24*7)); ?>" required>
+            </div>
+            <br>
+            <button href="checkout.html">Proceed to Checkout</a>
+				</form>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

@@ -47,7 +47,7 @@ if (!mysqli_select_db($link, DB_DATABASE)) {
             die("ERROR: Could not create table: Atlanta. " . mysqli_error($link));
             mysqli_query($link, 'DROP DATABASE ' . DB_DATABASE);
         }
-        $la = 'CREATE TABLE ' . DB_DATABASE . '.la ( id INT NOT NULL , available INT NOT NULL )';
+        $la = 'CREATE TABLE ' . DB_DATABASE . '.losangeles ( id INT NOT NULL , available INT NOT NULL )';
         if (!mysqli_query($link, $la)) {
             die("ERROR: Could not create table: Los Angeles. " . mysqli_error($link));
             mysqli_query($link, 'DROP DATABASE ' . DB_DATABASE);
@@ -141,7 +141,7 @@ function seed_demo_data()
     insert_inventory(3, 3);
     insert_inventory(4, 2);
 
-    $insert_inventory = 'INSERT INTO la (id, available) VALUES (?,?)';
+    $insert_inventory = 'INSERT INTO losangeles (id, available) VALUES (?,?)';
     mysqli_select_db($link, DB_DATABASE);
     $stmt_city = mysqli_prepare($link, $insert_inventory);
     if (!$stmt_city) {

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('templates.inc');
+require_once('cart.php');
 require_once("registration/config.php");
 
 $_city = "atlanta";
@@ -24,9 +25,6 @@ $_SESSION['city'] = $_city;
   </style>
 
   <body>
-    <pre>
-      <?php print_r($_SESSION); ?>
-    </pre>
     <!-- wrapper -->
     <? sidebar(); ?>
       <div class="block2"><img style="width: 88%; height: 110px" src="images/phone-ad2.png" alt="phone-ad2"></div>
