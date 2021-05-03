@@ -19,6 +19,7 @@ body {
 
 .product{
 	display: flex;
+	border: 1px solid black;
 }
 
 .product:hover{
