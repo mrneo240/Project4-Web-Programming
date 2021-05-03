@@ -1,19 +1,19 @@
 <!--
 Johnathan Nguyen
-WEB PROGRAMMING 
+WEB PROGRAMMING
 Project #4: Car Rental
 Referenced: https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
 -->
 <?php
 // Include config file
 require_once "config.php";
- 
+
 // Define variables user & pass and their errors
 $username = "";
 $password = "";
 $signupUser_err = "";
 $signupPass_err = "";
- 
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validation for username
@@ -43,15 +43,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
-    // Validattion for password
+    // Validation for password
     if(empty($_POST["password"])){
-        $signupPass_err = "Please enter a password.";     
+        $signupPass_err = "Please enter a password.";
     } elseif(strlen($_POST["password"]) < 8){
         $signupPass_err = "Password must have atleast 8 characters.";
     } else{
         $password = $_POST["password"];
     }
-    
+
     // If no errors, insert into database
     if(empty($signupUser_err) && empty($signupPass_err)){
         // mysql insert statement
@@ -59,11 +59,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($stmt = mysqli_prepare($link, $mysql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $insert_username, $insert_password);
-            
+
             // Set parameters
             $insert_username = $username;
             $insert_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
+
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
