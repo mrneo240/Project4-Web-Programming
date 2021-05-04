@@ -33,6 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 //Check to see if username taken
                 if(mysqli_stmt_num_rows($statement) == 1){
                     $signupUser_err = "Username already exists.";
+                    $validationFail++;
                 } else{
                     //set username to input value
                     $username = $_POST["username"];
